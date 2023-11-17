@@ -11,7 +11,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RancanganProgramController;
 use App\Http\Controllers\RenunganController;
 use App\Http\Controllers\SejarahGerejaController;
-use App\Http\Controllers\StatistikProgramController;
+use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\StrukturOrganisasiController;
 use App\Http\Controllers\WartaJemaatController;
 
