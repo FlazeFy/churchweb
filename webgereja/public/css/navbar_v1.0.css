@@ -1,0 +1,10 @@
+.navbar {
+    background: var(--whiteColor);
+}
+.nav-link {
+    color: var(--greyColor) !important;
+}
+.nav-link.active {
+    color: var(--darkColor) !important;
+    border-bottom: 4px solid var(--primaryColor);
+}

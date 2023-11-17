@@ -1,0 +1,5 @@
+.btn {
+    border-radius: var(--roundedXLG);
+    padding-inline: var(--spaceXLG);
+    font-weight: bold;
+}
