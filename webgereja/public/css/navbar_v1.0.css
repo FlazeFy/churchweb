@@ -1,10 +1,25 @@
+/* Main navbar */
 .navbar {
     background: var(--whiteColor);
 }
 .nav-link {
     color: var(--greyColor) !important;
+    margin-right: var(--spaceMD);
 }
 .nav-link.active {
     color: var(--darkColor) !important;
     border-bottom: 4px solid var(--primaryColor);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: var(--primaryColor);
+    padding: var(--spaceXMD);
+    color: var(--whiteColor);
+}
+.socmed {
+    text-decoration: none;
+    color: var(--darkColor);
+    font-size: var(--textXLG);
 }

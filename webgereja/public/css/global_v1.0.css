@@ -15,7 +15,7 @@
     --roundedXLG : 24px;
     --roundedLG : 18px;
     --roundedMD : 14px;
-    --roundedSM : 10px;
+    --roundedSM : 12px;
     --roundedMini : 6px;
 
     /* Spacing */
@@ -56,6 +56,9 @@
 .main {
     max-width: 1280px;
     margin-inline: auto;
-    height: 200vh;
     padding-top: 10vh;
+}
+
+.carousel-control-prev {
+    padding: 0;
 }
