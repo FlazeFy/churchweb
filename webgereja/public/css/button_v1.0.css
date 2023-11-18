@@ -3,3 +3,19 @@
     padding-inline: var(--spaceXLG);
     font-weight: bold;
 }
+.btn-close {
+    background: var(--primaryColor);
+    margin-right: var(--spaceMini) !important;
+    opacity: 0.9;
+    border-radius: var(--roundedCircle);
+    color: var(--whiteColor);
+    padding-bottom: var(--spaceXMD) !important;
+    padding-inline: var(--spaceMD) !important;
+}
+.btn-close i {
+    color: var(--whiteColor) !important;
+    margin-top: -100px !important;
+}
+.btn-close:hover {
+    opacity: 1;
+}

@@ -1,0 +1,21 @@
+
+/* Jquery Datatables */
+.paginate_button.page-item a {
+    margin-right: var(--spaceSM);
+    background: var(--shadowColor);
+    border: none;
+    border-radius: var(--roundedMini);
+    color: var(--darkColor);
+}
+.paginate_button.page-item.active a {
+    background: var(--primaryColor);
+}
+
+.dataTables_length {
+    display: flex;
+    align-items: center;
+}
+
+.dataTables_length label {
+    margin-right: 10px; 
+}

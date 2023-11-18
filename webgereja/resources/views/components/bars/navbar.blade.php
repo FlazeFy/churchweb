@@ -50,8 +50,9 @@
                 </ul>
             </li>
             </ul>
-            <button class="btn btn-danger me-3 ms-2" > Diakora </button>
-            <a class="btn btn-primary" href="/login" > Masuk </a>
+            <button class="btn btn-danger me-3 ms-2" data-bs-toggle="modal" data-bs-target="#diakoniaModal">Diakonia</button>
+            <a class="btn btn-primary" href="/login">Masuk</a>
         </div>
     </div>
 </nav>
+@include('components.modals.diakonia')
