@@ -38,6 +38,7 @@ Route::prefix('/renungan')->group(function () {
 });
 Route::prefix('/kegiatan')->group(function () {
     Route::get('/', [KegiatanController::class, 'index']);
+    Route::post('/filter_tipe', [KegiatanController::class, 'filter_tipe_kegiatan']);
 });
 
 Route::prefix('/jemaat')->group(function () {

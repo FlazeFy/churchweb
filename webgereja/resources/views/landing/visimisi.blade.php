@@ -1,5 +1,6 @@
 <div class="text-center">
-    <h2>Visi dan Misi Gereja GKPI</h2>
+    @include('components.typographies.section_title', ['title'=>'Visi dan Misi Gereja GKPI'])
+
     <br><h6 class="fw-bold">Visi :</h6>
     <p>"MENJADI PERSEKUTUAN PENYEMBAHAN DAN PERSEMBAHAN"</p>
 

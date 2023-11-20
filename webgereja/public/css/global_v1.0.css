@@ -62,3 +62,7 @@
 .carousel-control-prev {
     padding: 0;
 }
+
+.form-select {
+    font-size: var(--textXMD);
+}

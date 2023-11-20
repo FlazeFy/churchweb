@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\KamusModel;
+
 class KegiatanController extends Controller
 {
     /**
@@ -11,54 +13,19 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        //
+        $kamus = KamusModel::select('kamus_slug', 'kamus_nama')
+            ->where('kamus_type','tipe_kegiatan')
+            ->orderBy('kamus_nama', 'DESC')
+            ->get();
+
+        return view('kegiatan.index')
+            ->with('kamus',$kamus);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function filter_tipe_kegiatan(Request $request)
     {
-        //
-    }
+        session()->put('selected_tipe_kegiatan', $request->filter_tipe);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->back()->with('success_mini_message', 'Tipe kegiatan disaring');
     }
 }

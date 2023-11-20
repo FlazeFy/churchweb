@@ -36,7 +36,7 @@
 
     <script type="text/javascript" charset="utf-8">
       $(document).ready(function () {
-        $('#tataIbadahTable').DataTable()
+        $('#jadwalTable').DataTable()
       });
     </script>
 </head>
@@ -46,21 +46,10 @@
   @include('components.bars.navbar')
 
   <div class="main">
-    @include('landing.welcome')
-
     <br><br><br>
-    @include('components.typographies.section_title', ['title'=>'Pengurus Harian Jemaat'])
-    @include('landing.pengurus')
-
-    <br><br><br>
-    <div class="row mt-5">
-      <div class="col-lg-7 col-md-6 col-sm-12">
-        @include('landing.tataibadah')
-      </div>
-      <div class="col-lg-5 col-md-6 col-sm-12">
-        @include('landing.visimisi')
-      </div>
-    </div>
+    @include('kegiatan.filtertipe')
+    <br>
+    @include('kegiatan.table')
     
   </div>
 

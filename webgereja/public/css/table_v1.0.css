@@ -1,4 +1,6 @@
-
+td {
+    font-size: var(--textXMD);
+}
 /* Jquery Datatables */
 .paginate_button.page-item a {
     margin-right: var(--spaceSM);

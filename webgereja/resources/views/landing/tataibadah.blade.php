@@ -1,4 +1,4 @@
-<h2>Tata Ibadah</h2>
+@include('components.typographies.section_title', ['title'=>'Tata Ibadah'])
 <table class="table table-paginate" id="tataIbadahTable" cellspacing="0">
     <thead>
         <tr>

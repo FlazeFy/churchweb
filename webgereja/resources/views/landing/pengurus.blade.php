@@ -47,7 +47,7 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="btn-crsl active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#--roundedJumbo" data-bs-slide-to="1" class="btn-crsl" aria-label="Slide 2"></button>
     </div>
-    <div class="carousel-inner px-5 mt-5">
+    <div class="carousel-inner px-5 mt-3">
         <div class="carousel-item active">
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-12">
