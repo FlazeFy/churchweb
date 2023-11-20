@@ -40,13 +40,11 @@
       });
     </script>
 </head>
-
 <body>
   <!-- Navbar -->
   @include('components.bars.navbar')
 
   <div class="main">
-    <br><br><br>
     @include('kegiatan.filtertipe')
     <br>
     @include('kegiatan.table')

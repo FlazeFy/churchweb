@@ -11,6 +11,10 @@ class LandingController extends Controller
      */
     public function index()
     {
+        if(!session()->get('selected_tipe_kegiatan')){
+            session()->put('selected_tipe_kegiatan', "All");
+        }
+
         return view('landing.index');
     }
 

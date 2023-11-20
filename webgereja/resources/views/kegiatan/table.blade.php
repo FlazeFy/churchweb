@@ -9,13 +9,14 @@
 <?php
     use App\Helpers\Generator;
 ?>  
+
 @php($clean_title = Generator::getCleanTitle($title_kegiatan)) 
 
 @include('components.typographies.section_title', ['title'=> $clean_title])
 <table class="table table-paginate" id="jadwalTable" cellspacing="0">
     <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">No</th>
             <th scope="col">Tipe</th>
             <th scope="col">Tgl / Hari</th>
             <th scope="col">Jam</th>
@@ -25,16 +26,54 @@
         </tr>
     </thead>
     <tbody>
-        @for($i = 0; $i < 100; $i++)
+        @php($i = 0)
+        @foreach($kegiatan as $kg)
+            @php($i++)
             <tr>
-                <th scope="row">{{$i+1}}</th>
-                <td>Sekolah Minggu</td>
-                <td>5 November 2023, Minggu</td>
-                <td>16:00 - Selesai</td>
-                <td>P.Sitanggang / Br.Simanjuntak ( Sektor Kolose - Jl . Pepaya no 12)</td>
-                <td>Kunjungan yang dilakukan berlangsung selama 3 hari. PP / Remaja melakukan kunjungan dengan PP / Remaja Gereja GKPI Siantar Kota</td>
-                <td>Laki- laki : <br> <b>20 orang</b> <br> Perempuan : <br> <b>15 orang</b></td>
+                <td scope="row">
+                    {{$i}}
+                </td>
+                <td>
+                    @php($clean_tipe_jadwal = Generator::getCleanTitle($kg->tipe_jadwal)) 
+                    {{$clean_tipe_jadwal}}
+                </td>
+                <td>
+                    {{date("Y-m-d, D", strtotime($kg->tgl_jadwal))}}
+                </td>
+                <td>
+                    {{date("H:i", strtotime($kg->waktu_mulai))}} - 
+                    @if($kg->waktu_selesai == null)
+                        Selesai
+                    @else
+                        {{date("H:i", strtotime($kg->waktu_selesai))}}
+                    @endif
+                </td>
+                <td>
+                    @php($tp = json_decode($kg->tempat))
+                    {{$tp->nama}} 
+                    ({{$tp->sektor}} - {{$tp->alamat}})
+                </td>
+                <td>{{$kg->keterangan}}</td>
+                <td>
+                    @php($hs = json_decode($kg->hasil))
+                    @if(isset($hs->laki_laki))
+                        Laki - Laki : <br> 
+                        <b>
+                        {{$hs->laki_laki}}
+                            </b> 
+                            orang
+                        <br> 
+                    @endif
+                    @if(isset($hs->perempuan))
+                        Perempuan : <br> 
+                        <b>
+                        {{$hs->perempuan}} 
+                            </b> 
+                            orang
+                        <br>
+                    @endif
+                </td>
             </tr>
-        @endfor
+        @endforeach
     </tbody>
 </table>    

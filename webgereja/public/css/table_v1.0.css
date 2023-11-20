@@ -1,6 +1,14 @@
 td {
     font-size: var(--textXMD);
 }
+thead {
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+}
+thead tr th {
+    font-weight: 500;
+}
+
 /* Jquery Datatables */
 .paginate_button.page-item a {
     margin-right: var(--spaceSM);
