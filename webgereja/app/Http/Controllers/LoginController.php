@@ -11,15 +11,15 @@ class LoginController extends Controller
      */
     public function index()
     {
-        //
+        return view('login.index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function login()
     {
-        //
+        return redirect('/');
     }
 
     /**

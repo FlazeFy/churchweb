@@ -2,6 +2,10 @@
     border-radius: var(--roundedXLG);
     padding-inline: var(--spaceXLG);
     font-weight: bold;
+    border: none;
+}
+.btn-primary {
+    background: var(--primaryColor);
 }
 .btn-close {
     background: var(--primaryColor);
