@@ -66,3 +66,7 @@
 .form-select {
     font-size: var(--textXMD);
 }
+
+embed {
+    margin-top: var(--spaceXMD);
+}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\WartaModel;
 
 class WartaJemaatController extends Controller
 {
@@ -11,7 +12,12 @@ class WartaJemaatController extends Controller
      */
     public function index()
     {
-        //
+        $warta = WartaModel::select('id','judul','url_warta')
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('warta.index')
+            ->with('warta',$warta);
     }
 
     /**

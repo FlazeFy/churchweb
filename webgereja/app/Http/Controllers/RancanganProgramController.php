@@ -11,7 +11,7 @@ class RancanganProgramController extends Controller
      */
     public function index()
     {
-        //
+        return view('rancangan.index');
     }
 
     /**

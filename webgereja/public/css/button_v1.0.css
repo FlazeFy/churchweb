@@ -23,3 +23,12 @@
 .btn-close:hover {
     opacity: 1;
 }
+.btn-docs {
+    text-align: left !important;
+    width: 100%;
+    background: var(--warningBG);
+    border-radius: var(--roundedMini);
+    color: var(--whiteColor) !important;
+    margin-bottom: var(--spaceSM);
+    font-weight: 500;
+}
