@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+
+use App\Helpers\Validation;
+
+use App\Models\AdminModel;
 
 class LoginController extends Controller
 {
@@ -14,51 +21,35 @@ class LoginController extends Controller
         return view('login.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function login()
+    public function login(Request $request)
     {
-        return redirect('/');
+        $validator = Validation::getValidateLogin($request);
+
+        if ($validator->fails()) {
+            $errors = $validator->messages();
+
+            return redirect()->route('login')->with('failed_message', $errors);
+        } else {
+            $user = AdminModel::where('email', $request->email)->first();
+
+            if (!$user) {
+                return redirect()->route('login')->with('failed_message', "Email doesn't exist");
+            } else if ($user && ($request->password != $user->password)) {
+                return redirect()->route('login')->with('failed_message', 'Wrong password');
+            } else {
+                $token = $user->createToken('login')->plainTextToken;
+
+                return redirect()->route('landing')->with('success_mini_message', 'Login success');
+            }
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function logout(Request $request)
     {
-        //
-    }
+        $request->user()->currentAccessToken()->delete();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return response()->json([
+            'message' => 'Logout success'
+        ], Response::HTTP_OK);
     }
 }

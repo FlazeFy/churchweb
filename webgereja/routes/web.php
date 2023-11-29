@@ -27,7 +27,7 @@ use App\Http\Controllers\WartaJemaatController;
 */
 
 Route::prefix('/')->group(function () {
-    Route::get('/', [LandingController::class, 'index']);
+    Route::get('/', [LandingController::class, 'index'])->name('landing');
 });
 
 Route::prefix('/rancangan')->group(function () {
@@ -65,7 +65,7 @@ Route::prefix('/badanpengurus')->group(function () {
 });
 
 Route::prefix('/login')->group(function () {
-    Route::get('/', [LoginController::class, 'index']);
+    Route::get('/', [LoginController::class, 'index'])->name('login');
     Route::post('/check', [LoginController::class, 'login']);
 });
 Route::prefix('/forget')->group(function () {
