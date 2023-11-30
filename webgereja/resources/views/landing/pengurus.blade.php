@@ -44,74 +44,45 @@
 
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="btn-crsl active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#--roundedJumbo" data-bs-slide-to="1" class="btn-crsl" aria-label="Slide 2"></button>
+        @php($i = 0)
+        @php($shown = false)
+        @foreach($pengurus as $p)
+            @if($i == 0 || $i % 4 == 0)
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$i}}" class="btn-crsl <?php if($shown == false){ echo "active"; $shown = true; } ?>" aria-current="true" aria-label="Slide {{$i+1}}"></button>
+            @endif
+            @php($i++)
+        @endforeach
     </div>
     <div class="carousel-inner px-5 mt-3">
-        <div class="carousel-item active">
-            <div class="row">
+        @php($i = 0)
+        @php($shown = false)
+        @php($total = count($pengurus))x
+        @foreach($pengurus as $p)
+
+            @if($i == 0 || $i % 4 == 0)
+            <div class="carousel-item <?php if($shown == false){ echo "active"; $shown = true; } ?>">
+                <div class="row">
+            @endif
+
                 <div class="col-lg-3 col-md-4 col-sm-12">
                     <div class="person-box">
-                        <img src="{{ asset('/assets/person.jpg') }}" title="">
-                        <h4>Pendeta</h4>
-                        <h6>BPK Tampubulon</h6>
+                        @if($p->img_url == null)
+                            <img src="{{ asset('/assets/person.jpg') }}" title="">
+                        @else 
+                            <img src="{{$p->img_url}}" title="">
+                        @endif
+                        <h4>{{$p->jabatan}}</h4>
+                        <h6>{{$p->nama}}</h6>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-12">
-                    <div class="person-box">
-                        <img src="{{ asset('/assets/person.jpg') }}" title="">
-                        <h4>Pendeta</h4>
-                        <h6>BPK Tampubulon</h6>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-12">
-                    <div class="person-box">
-                        <img src="{{ asset('/assets/person.jpg') }}" title="">
-                        <h4>Pendeta</h4>
-                        <h6>BPK Tampubulon</h6>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-12">
-                    <div class="person-box">
-                        <img src="{{ asset('/assets/person.jpg') }}" title="">
-                        <h4>Pendeta</h4>
-                        <h6>BPK Tampubulon</h6>
-                    </div>
+
+            @if(($i % 4 == 0 && $i != 0) || $total == $i)
                 </div>
             </div>
-        </div>
-        <div class="carousel-item">
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-12">
-                    <div class="person-box">
-                        <img src="{{ asset('/assets/person.jpg') }}" title="">
-                        <h4>Pendeta</h4>
-                        <h6>BPK Tampubulon</h6>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-12">
-                    <div class="person-box">
-                        <img src="{{ asset('/assets/person.jpg') }}" title="">
-                        <h4>Pendeta</h4>
-                        <h6>BPK Tampubulon</h6>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-12">
-                    <div class="person-box">
-                        <img src="{{ asset('/assets/person.jpg') }}" title="">
-                        <h4>Pendeta</h4>
-                        <h6>BPK Tampubulon</h6>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-12">
-                    <div class="person-box">
-                        <img src="{{ asset('/assets/person.jpg') }}" title="">
-                        <h4>Pendeta</h4>
-                        <h6>BPK Tampubulon</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
+            @endif
+
+            @php($i++)
+        @endforeach
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
