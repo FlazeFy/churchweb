@@ -45,10 +45,12 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         @php($i = 0)
+        @php($j = 0)
         @php($shown = false)
         @foreach($pengurus as $p)
             @if($i == 0 || $i % 4 == 0)
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$i}}" class="btn-crsl <?php if($shown == false){ echo "active"; $shown = true; } ?>" aria-current="true" aria-label="Slide {{$i+1}}"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$j}}" class="btn-crsl <?php if($shown == false){ echo "active"; $shown = true; } ?>" aria-current="true" aria-label="Slide {{$j+1}}"></button>
+                @php($j++)
             @endif
             @php($i++)
         @endforeach
@@ -76,12 +78,12 @@
                     </div>
                 </div>
 
+                @php($i++)
             @if(($i % 4 == 0 && $i != 0) || $total == $i)
                 </div>
             </div>
             @endif
 
-            @php($i++)
         @endforeach
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
