@@ -38,6 +38,7 @@ class LoginController extends Controller
                 return redirect()->route('login')->with('failed_message', 'Wrong password');
             } else {
                 $token = $user->createToken('login')->plainTextToken;
+                $request->session()->put('token_key', $token);
 
                 return redirect()->route('landing')->with('success_mini_message', 'Login success');
             }

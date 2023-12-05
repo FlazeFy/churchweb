@@ -19,13 +19,22 @@
     <!-- Jquery -->
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
+    @if($role == "admin")
+        <!--Full calendar.-->
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    @endif
+
     <!-- CSS Collection -->
     <link rel="stylesheet" href="{{ asset('/css/global_v1.0.css') }}"/>
     <link rel="stylesheet" href="{{ asset('/css/button_v1.0.css') }}"/>
     <link rel="stylesheet" href="{{ asset('/css/navbar_v1.0.css') }}"/>
     <link rel="stylesheet" href="{{ asset('/css/dropdown_v1.0.css') }}"/>
     <link rel="stylesheet" href="{{ asset('/css/typography_v1.0.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('/css/container_v1.0.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/css/calendar_v1.0.css') }}"/>
+
+    <!-- JS Collection -->
+    <script src="{{ asset('/js/generator_v1.0.js') }}"></script>
+    <script src="{{ asset('/js/converter_v1.0.js') }}"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -37,14 +46,11 @@
             @include('components.typographies.section_title', ['title'=>'Renungan Harian'])
         </div>
 
-        <div class="row text-center">
-            @if($renungan != null)
-                <h3 style="color: var(--primaryColor)">{{$renungan->judul}}</h3>
-                <h4>{{$renungan->perikop}}</h4>
-                <p class="fst-italic text-secondary" style="font-size: var(--textXMD);">{{date("Y M d", strtotime($renungan->for_date))}}</p>
-                <?php echo $renungan->isi; ?>
-            @endif
-        </div>
+        @if($role == "visitor")
+            @include('renungan.bacaan', ['renungan'=>$renungan])
+        @else 
+            @include('renungan.kalender', ['renungan'=>$renungan])
+        @endif
     </div>
 
     <!-- Footer -->

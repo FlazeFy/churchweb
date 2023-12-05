@@ -18,17 +18,22 @@ class RenunganController extends Controller
         $today = date("Y-m-d");
 
         $user_id = Generator::getUserId();
+        $role = "visitor";
 
-        if($user_id != null){
+        if($user_id == null){
             $renungan = RenunganModel::select('judul','perikop','isi','for_date')
                 ->where('for_date', $today)
                 ->first();
         } else {
-            $renungan = null;
+            $role = "admin";
+            $renungan = RenunganModel::select('id','judul','perikop','for_date')
+                ->orderBy('created_at', 'DESC')
+                ->get();
         }
 
         return view('renungan.index')
-            ->with('renungan', $renungan);
+            ->with('renungan', $renungan)
+            ->with('role', $role);
     }
 
     /**
