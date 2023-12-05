@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\RenunganModel;
+
+use App\Helpers\Generator;
+
 class RenunganController extends Controller
 {
     /**
@@ -11,7 +15,20 @@ class RenunganController extends Controller
      */
     public function index()
     {
-        return view('renungan.index');
+        $today = date("Y-m-d");
+
+        $user_id = Generator::getUserId();
+
+        if($user_id != null){
+            $renungan = RenunganModel::select('judul','perikop','isi','for_date')
+                ->where('for_date', $today)
+                ->first();
+        } else {
+            $renungan = null;
+        }
+
+        return view('renungan.index')
+            ->with('renungan', $renungan);
     }
 
     /**

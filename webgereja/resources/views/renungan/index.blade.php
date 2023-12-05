@@ -28,26 +28,26 @@
     <link rel="stylesheet" href="{{ asset('/css/container_v1.0.css') }}"/>
 </head>
 <body>
-     <!-- Navbar -->
-  @include('components.bars.navbar')
+    <!-- Navbar -->
+    @include('components.bars.navbar')
 
-  <div class="main">
-    <br><br><br>
-    <div class="text-center">
-        @include('components.typographies.section_title', ['title'=>'Renungan Harian'])
+    <div class="main">
+        <br><br><br>
+        <div class="text-center">
+            @include('components.typographies.section_title', ['title'=>'Renungan Harian'])
+        </div>
+
+        <div class="row text-center">
+            @if($renungan != null)
+                <h3 style="color: var(--primaryColor)">{{$renungan->judul}}</h3>
+                <h4>{{$renungan->perikop}}</h4>
+                <p class="fst-italic text-secondary" style="font-size: var(--textXMD);">{{date("Y M d", strtotime($renungan->for_date))}}</p>
+                <?php echo $renungan->isi; ?>
+            @endif
+        </div>
     </div>
 
-    <div class="row text-center">
-        <h3 style="color: var(--primaryColor)">Bersukacitalah, Tuhan ada diantara kita</h3>
-        <h4>Zefanya 3:14-20</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In maxime cumque quas quisquam, blanditiis illum nulla iste rem aut ex velit officiis impedit veritatis praesentium veniam labore eaque necessitatibus iure.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa officia facilis pariatur dolores amet similique repellat officiis labore corrupti rerum. Dignissimos animi quae officiis commodi corporis facere facilis rerum dolor.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ab quisquam eos odit repellendus blanditiis odio rem obcaecati nobis ipsa. Perferendis, quia odit? Sequi facere molestiae rerum neque corporis animi.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptate nulla quibusdam perspiciatis esse consequuntur soluta architecto excepturi corporis distinctio eum ut dignissimos mollitia, hic autem itaque maxime molestiae tempora!</p>
-    </div>
-  </div>
-
-      <!-- Footer -->
-  @include('components.bars.footer')
+    <!-- Footer -->
+    @include('components.bars.footer')
 </body>
 </html>
