@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\PengurusModel;
+
 class LandingController extends Controller
 {
     /**
@@ -15,7 +17,12 @@ class LandingController extends Controller
             session()->put('selected_tipe_kegiatan', "All");
         }
 
-        return view('landing.index');
+        $pengurus = PengurusModel::select('nama','jabatan','img_url')
+            ->orderBy('nama', 'DESC')
+            ->get();
+
+        return view('landing.index')
+            ->with('pengurus', $pengurus);
     }
 
     /**

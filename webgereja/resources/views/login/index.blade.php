@@ -35,27 +35,31 @@
                 <img src="{{ asset('/assets/papi_j.png') }}" alt="" class="img img-fluid d-block mx-auto">
             </div>
             <div class="col-lg-6 col-md-7 col-sm-12 pt-5">
-               <h1 class="my-4">Masuk</h1> 
-               <form action="/login/check" method="POST">
-                @csrf
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="Masukkan email anda">
-                    <label for="floatingInput">Email</label>
-                  </div>
-                  <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Masukkan kata sandi">
-                    <label for="floatingPassword">Kata sandi</label>
-                  </div>
-                <div class="text-end mt-2 mb-4" >
-                    <a href="#" style="color: var(--greyColor) !important" >lupa password? </a>
-                </div>
-                <button type="submit" class="btn btn-primary w-100 py-3">Masuk</button>
-                <div class="text-center mt-3">
-                    <h6 style="color: var(--greyColor)">tidak punya akun? <a href="#" class="fw-bold" >daftar disini</a></h6>
-                </div>
-            </form>
+                <h1 class="my-4">Masuk</h1> 
+                <form action="/login/check" method="POST">
+                    @csrf
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Masukkan email anda" required>
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Masukkan kata sandi" required>
+                        <label for="floatingPassword">Kata sandi</label>
+                    </div>
+                    <div class="text-end mt-2 mb-4" >
+                        <a href="#" style="color: var(--greyColor) !important" >lupa password? </a>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-3">Masuk</button>
+                    <div class="text-center mt-3">
+                        <h6 style="color: var(--greyColor)">tidak punya akun? <a href="#" class="fw-bold" >daftar disini</a></h6>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+
+    <!--Modal-->
+    @include('components.modals.failed')
 </body>
+
 </html>
