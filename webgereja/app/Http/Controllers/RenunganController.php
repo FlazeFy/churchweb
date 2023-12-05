@@ -11,7 +11,7 @@ class RenunganController extends Controller
      */
     public function index()
     {
-        //
+        return view('renungan.index');
     }
 
     /**
