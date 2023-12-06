@@ -10,6 +10,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RancanganProgramController;
 use App\Http\Controllers\RenunganController;
+use App\Http\Controllers\DetailRenunganController;
 use App\Http\Controllers\SejarahGerejaController;
 use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\StrukturOrganisasiController;
@@ -35,6 +36,7 @@ Route::prefix('/rancangan')->group(function () {
 });
 Route::prefix('/renungan')->group(function () {
     Route::get('/', [RenunganController::class, 'index']);
+    Route::get('/{slug}', [DetailRenunganController::class, 'index']);
 });
 Route::prefix('/kegiatan')->group(function () {
     Route::get('/', [KegiatanController::class, 'index']);
