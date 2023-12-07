@@ -69,6 +69,7 @@ Route::prefix('/badanpengurus')->group(function () {
 Route::prefix('/login')->group(function () {
     Route::get('/', [LoginController::class, 'index'])->name('login');
     Route::post('/check', [LoginController::class, 'login']);
+    Route::post('/signout', [LoginController::class, 'signout']);
 });
 Route::prefix('/forget')->group(function () {
     Route::get('/', [ForgetPassController::class, 'index']);

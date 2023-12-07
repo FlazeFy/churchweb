@@ -44,8 +44,13 @@
             </li>
             </ul>
             <button class="btn btn-danger me-3 ms-2" data-bs-toggle="modal" data-bs-target="#diakoniaModal">Diakonia</button>
-            <a class="btn btn-primary" href="/login">Masuk</a>
+            @if(session()->get("token_key") == null)
+                <a class="btn btn-primary" href="/login">Masuk</a>
+            @else
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signOutModal">Keluar</button>
+            @endif
         </div>
     </div>
 </nav>
 @include('components.modals.diakonia')
+@include('components.modals.sign_out')

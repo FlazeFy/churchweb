@@ -19,8 +19,8 @@
     <!-- Jquery -->
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-    @if($role == "admin")
-        <!--Full calendar.-->
+    @if(session()->get("token_key") != null)
+        <!-- Full calendar -->
         <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
     @endif
 
@@ -46,7 +46,7 @@
             @include('components.typographies.section_title', ['title'=>'Renungan Harian'])
         </div>
 
-        @if($role == "visitor")
+        @if(session()->get("token_key") == null)
             @include('renungan.bacaan', ['renungan'=>$renungan])
         @else 
             @include('renungan.kalender', ['renungan'=>$renungan])

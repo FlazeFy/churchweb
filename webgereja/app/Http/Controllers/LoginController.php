@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+
 use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Laravel\Sanctum\PersonalAccessToken;
 
 use App\Helpers\Validation;
 
@@ -33,24 +37,26 @@ class LoginController extends Controller
             $user = AdminModel::where('email', $request->email)->first();
 
             if (!$user) {
-                return redirect()->route('login')->with('failed_message', "Email doesn't exist");
+                return redirect()->route('login')->with('failed_message', "Email tidak terdaftar");
             } else if ($user && ($request->password != $user->password)) {
-                return redirect()->route('login')->with('failed_message', 'Wrong password');
+                return redirect()->route('login')->with('failed_message', 'Password salah');
             } else {
                 $token = $user->createToken('login')->plainTextToken;
                 $request->session()->put('token_key', $token);
 
-                return redirect()->route('landing')->with('success_mini_message', 'Login success');
+                return redirect()->route('landing')->with('success_mini_message', 'Sukses masuk');
             }
         }
     }
 
-    public function logout(Request $request)
+    public function signout(Request $request)
     {
-        $request->user()->currentAccessToken()->delete();
+        $token = session()->get('token_key');
+        $accessToken = PersonalAccessToken::findToken($token);
+        $accessToken->delete();
 
-        return response()->json([
-            'message' => 'Logout success'
-        ], Response::HTTP_OK);
+        Session::flush();
+        
+        return redirect()->route('landing')->with('success_message', 'Sukses keluar'); 
     }
 }
