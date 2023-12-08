@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JemaatModel;
+
 use Illuminate\Http\Request;
 
 class JemaatController extends Controller
@@ -11,7 +13,13 @@ class JemaatController extends Controller
      */
     public function index()
     {
-        //
+        $jemaat = JemaatModel::select('id', 'nama', 'jenis_kelamin', 'alamat', 'sektor', 'no_telp', 'created_at', 'created_by', 'updated_at', 'updated_by')
+            ->whereNull('deleted_at')
+            ->orderBy('nama', 'DESC')
+            ->get();
+
+        return view('jemaat.index')
+            ->with('jemaat', $jemaat);
     }
 
     /**

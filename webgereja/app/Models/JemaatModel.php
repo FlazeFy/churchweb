@@ -12,5 +12,5 @@ class JemaatModel extends Model
 
     protected $table = 'jemaat';
     protected $primaryKey = 'id';
-    protected $fillable = ['id','fullname', 'address', 'additional_info', 'phone', 'password', 'first_name', 'last_name', 'image_url', 'created_at', 'updated_at', 'created_by', 'updated_by'];
+    protected $fillable = ['id', 'nama', 'jenis_kelamin', 'alamat', 'sektor', 'no_telp', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted_at', 'deleted_by'];
 }
