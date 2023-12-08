@@ -1,6 +1,12 @@
 .dropdown-menu {
     border: none !important;
+    border-radius: var(--roundedSM);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: calc(var(--spaceXLG) + var(--spaceMD)) !important;
 }
 .dropdown-menu .dropdown-item:hover{
-    font-weight: bold;
+    font-weight: 600;
+}
+.dropdown-item.active {
+    background: var(--primaryColor);
 }

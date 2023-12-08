@@ -66,35 +66,13 @@ class JemaatController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function hapus($id)
     {
-        //
-    }
+        JemaatModel::where('id',$id)->update([
+            'deleted_at' => date("Y-m-d H:i:s"), 
+            'deleted_by' => Generator::getUserId()
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->back();
     }
 }

@@ -33,7 +33,8 @@
                 <td>
                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ubahJemaat{{$jm->id}}Modal"><i class="fa-solid fa-pen-to-square"></i></button>
                     @include('jemaat.ubah')
-                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusJemaat{{$jm->id}}Modal"><i class="fa-solid fa-trash"></i></button>
+                    @include('jemaat.hapus')
                 </td>
                 <td>
                     <b>Tanggal ditambahkan :</b><br>
