@@ -51,12 +51,19 @@ class JemaatController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function ubah(Request $request, $id)
     {
-        //
+        JemaatModel::where('id',$id)->update([
+            'nama' => $request->nama, 
+            'jenis_kelamin' => $request->jenis_kelamin, 
+            'alamat' => $request->alamat,
+            'sektor' => $request->sektor, 
+            'no_telp' => $request->no_telp,
+            'updated_at' => date("Y-m-d H:i:s"), 
+            'updated_by' => Generator::getUserId()
+        ]);
+
+        return redirect()->back();
     }
 
     /**

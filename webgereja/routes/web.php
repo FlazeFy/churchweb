@@ -48,6 +48,7 @@ Route::prefix('/kegiatan')->group(function () {
 Route::prefix('/jemaat')->group(function () {
     Route::get('/', [JemaatController::class, 'index']);
     Route::post('/tambah', [JemaatController::class, 'tambah']);
+    Route::post('/ubah/{id}', [JemaatController::class, 'ubah']);
 });
 Route::prefix('/warta')->group(function () {
     Route::get('/', [WartaJemaatController::class, 'index']);

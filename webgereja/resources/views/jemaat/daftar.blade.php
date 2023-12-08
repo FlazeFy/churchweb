@@ -23,7 +23,7 @@
                         Wanita
                     @endif
                 </td>
-                <td>{{$jm->sektor}}</td>
+                <td>{{ucfirst($jm->sektor)}}</td>
                 <td>
                     <b>No Telepon :</b><br>
                     {{$jm->no_telp}}<br>
@@ -31,7 +31,8 @@
                     {{$jm->alamat}}
                 </td>
                 <td>
-                    <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ubahJemaat{{$jm->id}}Modal"><i class="fa-solid fa-pen-to-square"></i></button>
+                    @include('jemaat.ubah')
                     <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                 </td>
                 <td>
@@ -39,7 +40,7 @@
                     {{date("Y-m-d H:i", strtotime($jm->created_at))}}
 
                     @if($jm->updated_at != null)
-                        <b>Tanggal diubah:</b><br>
+                        <br><b>Tanggal diubah:</b><br>
                         {{date("Y-m-d H:i", strtotime($jm->updated_at))}}
                     @endif
                 </td>
