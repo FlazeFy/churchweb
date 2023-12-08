@@ -36,6 +36,8 @@ Route::prefix('/rancangan')->group(function () {
 });
 Route::prefix('/renungan')->group(function () {
     Route::get('/', [RenunganController::class, 'index']);
+    Route::post('/tambah', [RenunganController::class, 'tambah']);
+
     Route::get('/{slug}', [DetailRenunganController::class, 'index']);
 });
 Route::prefix('/kegiatan')->group(function () {

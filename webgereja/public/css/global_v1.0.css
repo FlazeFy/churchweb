@@ -71,3 +71,7 @@
 embed {
     margin-top: var(--spaceXMD);
 }
+
+.img-icon {
+    width: 100%;
+}

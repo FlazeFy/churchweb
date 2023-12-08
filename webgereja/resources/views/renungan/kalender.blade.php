@@ -7,6 +7,7 @@
 <div class="calendar-holder">
     <div id="calendar"></div>
 </div>
+@include('renungan.tambah')
 
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
@@ -46,7 +47,12 @@
                 ?>
             ],
             eventClick:  function(info, jsEvent, view) {
-                window.location.href = "http://127.0.0.1:8000/renungan/" +info.event.extendedProps.slug;
+                window.location.href = "http://127.0.0.1:8000/renungan/" +info.event.extendedProps.slug
+            },
+            dateClick:  function(info) {
+                // document.getElementById("modalDate").value = info.dateStr
+                $('#modalDate').val(info.dateStr)
+                $('#addRenunganModal').modal('show')
             },
         });
         calendar.render();

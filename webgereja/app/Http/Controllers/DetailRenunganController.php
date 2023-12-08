@@ -13,11 +13,8 @@ class DetailRenunganController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $today = date("Y-m-d");
-        
+    {        
         $renungan = RenunganModel::select('id','judul','perikop','isi','for_date')
-            ->where('for_date', $today)
             ->first();
 
         $kitab = KamusModel::select('kamus_slug', 'kamus_nama')

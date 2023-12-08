@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\RenunganModel;
+use App\Models\KamusModel;
 
 use App\Helpers\Generator;
 
@@ -16,7 +17,7 @@ class RenunganController extends Controller
     public function index()
     {
         $today = date("Y-m-d");
-
+        $kitab = null;
         $user_id = Generator::getUserId();
 
         if($user_id == null){
@@ -27,18 +28,33 @@ class RenunganController extends Controller
             $renungan = RenunganModel::select('id','judul','perikop','for_date')
                 ->orderBy('created_at', 'DESC')
                 ->get();
+
+            $kitab = KamusModel::select('kamus_slug', 'kamus_nama')
+                ->where('kamus_type', 'kitab')
+                ->orderBy('id', 'ASC')
+                ->get();
         }
 
         return view('renungan.index')
-            ->with('renungan', $renungan);
+            ->with('renungan', $renungan)
+            ->with('kitab', $kitab);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function tambah(Request $request)
     {
-        //
+        RenunganModel::create([
+            'id' => Generator::getUUID(), 
+            'judul' => $request->judul, 
+            'perikop' => "$request->kitab : $request->ayat", 
+            'isi' => $request->isi, 
+            'for_date' => $request->for_date, 
+            'created_at' => date("Y-m-d H:i:s"), 
+            'created_by' => Generator::getUserId(), 
+            'updated_at' => null, 
+            'updated_by' => null
+        ]);
+
+        return redirect()->back();
     }
 
     /**

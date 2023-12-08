@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="{{ asset('/css/typography_v1.0.css') }}"/>
     <link rel="stylesheet" href="{{ asset('/css/calendar_v1.0.css') }}"/>
 
+    <!-- Quills Richtext -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <!-- JS Collection -->
     <script src="{{ asset('/js/generator_v1.0.js') }}"></script>
     <script src="{{ asset('/js/converter_v1.0.js') }}"></script>
