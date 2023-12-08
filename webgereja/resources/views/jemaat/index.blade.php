@@ -51,6 +51,7 @@
 
     <br><br><br>
     <div class="d-block mx-auto text-center">
+      @include('jemaat.tambah')
       @include('jemaat.daftar')
     </div>
   </div>
