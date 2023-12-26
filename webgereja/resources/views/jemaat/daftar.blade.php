@@ -6,6 +6,7 @@
             <th scope="col">Jenis Kelamin</th>
             <th scope="col">Sektor</th>
             <th scope="col">Info</th>
+            <th scope="col">Status</th>
             <th scope="col">Aksi</th>
             <th scope="col">Properti</th>
         </tr>
@@ -30,6 +31,7 @@
                     <b>Alamat :</b><br>
                     {{$jm->alamat}}
                 </td>
+                <td>{{ucfirst($jm->status)}}</td>
                 <td>
                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ubahJemaat{{$jm->id}}Modal"><i class="fa-solid fa-pen-to-square"></i></button>
                     @include('jemaat.ubah')

@@ -1,4 +1,4 @@
-<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tambahJemaatModal"><i class="fa-solid fa-plus"></i> Tambah Jemaat</button>
+<button class="btn btn-success w-100 h-100" data-bs-toggle="modal" data-bs-target="#tambahJemaatModal"><i class="fa-solid fa-plus"></i> Tambah Jemaat</button>
 <div class="modal fade" id="tambahJemaatModal" tabindex="-1" aria-labelledby="tambahJemaatModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -35,6 +35,18 @@
                                     @endforeach
                                 </select>
                                 <label for="floatingSelect">Sektor</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="status">
+                                    @php($i = 0)      
+                                    @foreach($status as $st)
+                                        <option value="{{$st->kamus_slug}}" <?php if($i == 0){ echo "selected";} ?> >{{$st->kamus_nama}}</option>
+                                        @php($i++)
+                                    @endforeach
+                                </select>
+                                <label for="floatingSelect">Status</label>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">

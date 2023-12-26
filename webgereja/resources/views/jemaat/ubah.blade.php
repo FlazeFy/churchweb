@@ -38,6 +38,18 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="form-floating mb-3">
+                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="status">
+                                    @php($i = 0)      
+                                    @foreach($status as $st)
+                                        <option value="{{$st->kamus_slug}}" <?php if($jm->status == $st->kamus_slug){ echo "selected";} ?> >{{$st->kamus_nama}}</option>
+                                        @php($i++)
+                                    @endforeach
+                                </select>
+                                <label for="floatingSelect">Status</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-floating mb-3">
                                 <input type="phone" class="form-control" id="floatingInput" name="no_telp" value="{{$jm->no_telp}}" required>
                                 <label for="floatingInput">Telepon</label>
                             </div>

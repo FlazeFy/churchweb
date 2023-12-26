@@ -8,6 +8,7 @@ use App\Models\KamusModel;
 use App\Helpers\Generator;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class JemaatController extends Controller
 {
@@ -20,15 +21,26 @@ class JemaatController extends Controller
             ->where('kamus_type', 'sektor')
             ->orderBy('id', 'ASC')
             ->get();
+
+        $status = KamusModel::select('kamus_slug', 'kamus_nama')
+            ->where('kamus_type', 'status')
+            ->orderBy('id', 'ASC')
+            ->get();
             
-        $jemaat = JemaatModel::select('id', 'nama', 'jenis_kelamin', 'alamat', 'sektor', 'no_telp', 'created_at', 'created_by', 'updated_at', 'updated_by')
+        $jemaat = JemaatModel::select('id', 'nama', 'jenis_kelamin', 'alamat', 'sektor', 'no_telp', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by')
             ->whereNull('deleted_at')
             ->orderBy('nama', 'DESC')
             ->get();
+        
+        $summary = JemaatModel::selectRaw('status, count(1) as total')
+            ->groupBy('status')
+            ->get();   
 
         return view('jemaat.index')
             ->with('jemaat', $jemaat)
-            ->with('sektor', $sektor);
+            ->with('sektor', $sektor)
+            ->with('status', $status)
+            ->with('summary', $summary);
     }
 
     public function tambah(Request $request)
@@ -39,6 +51,7 @@ class JemaatController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin, 
             'alamat' => $request->alamat,
             'sektor' => $request->sektor, 
+            'status' => $request->status, 
             'no_telp' => $request->no_telp, 
             'created_at' => date("Y-m-d H:i:s"), 
             'created_by' => Generator::getUserId(), 
@@ -58,6 +71,7 @@ class JemaatController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin, 
             'alamat' => $request->alamat,
             'sektor' => $request->sektor, 
+            'status' => $request->status, 
             'no_telp' => $request->no_telp,
             'updated_at' => date("Y-m-d H:i:s"), 
             'updated_by' => Generator::getUserId()

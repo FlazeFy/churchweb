@@ -46,12 +46,21 @@
   <div class="main">
     <br><br><br>
     <div class="text-center">
-        @include('components.typographies.section_title', ['title'=>'Jemaat', 'subtitle' => 'Informasi tentang jemaat gereja'])
+      @include('components.typographies.section_title', ['title'=>'Jemaat', 'subtitle' => 'Informasi tentang jemaat gereja'])
     </div>
+    <br>
 
-    <br><br><br>
     <div class="d-block mx-auto text-center">
-      @include('jemaat.tambah')
+      <div class="row">
+        <div class="col-lg-8">
+          @include('jemaat.summary')
+        </div>
+        <div class="col-lg-4">
+          @include('jemaat.tambah')
+        </div>
+      </div>
+      <hr>
+
       @include('jemaat.daftar')
     </div>
   </div>
