@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JemaatModel;
+
 use Illuminate\Http\Request;
 
 class StatistikController extends Controller
@@ -11,7 +13,17 @@ class StatistikController extends Controller
      */
     public function index()
     {
-        return view('statistik.index');
+        $statsStatus = JemaatModel::selectRaw('status as context, COUNT(1) as total')
+            ->groupBy('status')
+            ->get();
+
+        $statsSektor = JemaatModel::selectRaw('sektor as context, COUNT(1) as total')
+            ->groupBy('sektor')
+            ->get();
+
+        return view('statistik.index')
+            ->with('statsStatus', $statsStatus)
+            ->with('statsSektor', $statsSektor);
     }
 
     /**

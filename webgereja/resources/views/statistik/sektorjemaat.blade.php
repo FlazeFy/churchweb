@@ -11,37 +11,51 @@
         </span>
         <a class="dropdown-item" data-bs-target="#mlChart" data-bs-toggle="modal"><i class="fa-solid fa-circle-info"></i> Bantuan</a>
     </div>
-    <div id="pie_chart"></div>
+    <div id="pie_chart_sektor"></div>
 
-    <img src="{{asset('assets/nodata.png')}}" class="img nodata-icon">
-    <h6 class="text-center">Tanpa data</h6>
- 
+    @if(count($statsSektor) == 0)
+        <img src="{{asset('assets/nodata.png')}}" class="img nodata-icon">
+        <h6 class="text-center">Tanpa data</h6>
+    @endif
 
     @include('components.popup.mini_help', ['id' => 'mlChart', 'title'=> 'Most Location Chart', 'location'=>'most_loc_chart'])
 </div>
 
 <script type="text/javascript">
     var options = {
-        series: [200,100,200],
-        chart: {
-        width: '360',
-        type: 'pie',
-    },
-    labels: ["label 1", "label 2", "label 3"],
-    colors: ['#F9DB00','#009FF9','var(--primaryColor)','#42C9E7'],
-    legend: {
-        position: 'bottom'
-    },
-    responsive: [{
-        // breakpoint: 480,
-        options: {
-            legend: {
-                position: 'bottom'
+        series: [{
+        data: [
+            <?php
+                foreach($statsSektor as $sk){
+                    echo "$sk->total,";
+                }
+            ?>
+        ]
+        }],
+            chart: {
+            type: 'bar',
+            height: 350
+        },
+        plotOptions: {
+            bar: {
+                borderRadius: 4,
+                horizontal: true,
             }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        xaxis: {
+            categories: [
+                <?php
+                    foreach($statsSektor as $sk){
+                        echo "'$sk->context',";
+                    }
+                ?>
+            ],
         }
-    }]
     };
 
-    var chart = new ApexCharts(document.querySelector("#pie_chart"), options);
+    var chart = new ApexCharts(document.querySelector("#pie_chart_sektor"), options);
     chart.render();
 </script>

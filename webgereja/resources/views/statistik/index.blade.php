@@ -42,8 +42,9 @@
 
     <br><br><br>
     <div class="d-block mx-auto text-center">
-        @include('statistik.kelompokjemaat')
-        @include('statistik.sektorjemaat')
+      @include('statistik.kelompokjemaat')
+      <hr class="my-5">
+      @include('statistik.sektorjemaat')
     </div>
   </div>
 
