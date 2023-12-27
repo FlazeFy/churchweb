@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\KeuanganModel;
+
 class KeuanganController extends Controller
 {
     /**
@@ -11,7 +13,12 @@ class KeuanganController extends Controller
      */
     public function index()
     {
-        //
+        $keuangan = KeuanganModel::select('id', 'tipe', 'kategori', 'sektor', 'konteks', 'nominal', 'tanggal_terima', 'masuk_pada', 'created_at', 'created_by', 'updated_at', 'updated_by')
+            ->orderBy('created_at', 'ASC')
+            ->get();
+
+        return view('keuangan.index')
+            ->with('keuangan', $keuangan);
     }
 
     /**

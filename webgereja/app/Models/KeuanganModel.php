@@ -12,5 +12,5 @@ class KeuanganModel extends Model
 
     protected $table = 'keuangan';
     protected $primaryKey = 'id';
-    protected $fillable = ['id','keuangan_type', 'context', 'amount', 'description', 'created_at', 'updated_at', 'created_by', 'updated_by'];
+    protected $fillable = ['id', 'tipe', 'kategori', 'sektor', 'konteks', 'nominal', 'tanggal_terima', 'masuk_pada', 'created_at', 'created_by', 'updated_at', 'updated_by'];
 }

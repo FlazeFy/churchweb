@@ -33,7 +33,7 @@
                 </td>
                 <td>{{ucfirst($jm->status)}}</td>
                 <td>
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ubahJemaat{{$jm->id}}Modal"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="btn btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#ubahJemaat{{$jm->id}}Modal"><i class="fa-solid fa-pen-to-square"></i></button>
                     @include('jemaat.ubah')
                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusJemaat{{$jm->id}}Modal"><i class="fa-solid fa-trash"></i></button>
                     @include('jemaat.hapus')
