@@ -1,5 +1,6 @@
 <style>
     .btn-tab-holder {
+        margin-bottom: var(--spaceLG);
         border: none;
         background: transparent;
         margin-right: var(--spaceLG);

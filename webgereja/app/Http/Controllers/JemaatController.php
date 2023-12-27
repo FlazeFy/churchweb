@@ -19,7 +19,7 @@ class JemaatController extends Controller
     {
         $sektor = KamusModel::select('kamus_slug', 'kamus_nama')
             ->where('kamus_type', 'sektor')
-            ->orderBy('id', 'ASC')
+            ->orderBy('id', 'DESC')
             ->get();
 
         $status = KamusModel::select('kamus_slug', 'kamus_nama')

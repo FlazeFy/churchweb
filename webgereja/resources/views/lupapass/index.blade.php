@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Struktur Organisasi</title>
+    <title>Login | GKPI Kota Tebing Tinggi</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,24 +26,25 @@
     <link rel="stylesheet" href="{{ asset('/css/dropdown_v1.0.css') }}"/>
     <link rel="stylesheet" href="{{ asset('/css/typography_v1.0.css') }}"/>
     <link rel="stylesheet" href="{{ asset('/css/container_v1.0.css') }}"/>
+
 </head>
 <body>
-    <!-- Navbar -->
-    @include('components.bars.navbar')
-
     <div class="main">
-        <br><br><br>
-        <div class="text-center">
-            @include('components.typographies.section_title', ['title'=>'Struktur Organisasi'])
+        <div class="row mx-auto d-flex align-items-center">
+            <div class="col-lg-6 col-md-5 col-sm-12">
+                <img src="{{ asset('/assets/papi_j.png') }}" alt="" class="img img-fluid d-block mx-auto">
+            </div>
+            <div class="col-lg-6 col-md-7 col-sm-12 pt-5">
+                <h1 class="my-4">Lupa Password</h1> 
+                
+                @include('lupapass.check')
+                @include('lupapass.token')
+                @include('lupapass.finish')
+                
+            </div>
         </div>
-
-    <br><br>
-    <!-- Struktur Organisasi  -->
-    @include('struktur.tabs.struktur')
-
     </div>
-    
-    <!-- Footer -->
-    @include('components.bars.footer')
+
 </body>
+
 </html>

@@ -1,7 +1,7 @@
 <table class="table table-paginate text-start" id="jemaatTable" cellspacing="0">
     <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">No</th>
             <th scope="col">Nama</th>
             <th scope="col">Jenis Kelamin</th>
             <th scope="col">Sektor</th>

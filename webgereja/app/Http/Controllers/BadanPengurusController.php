@@ -11,7 +11,7 @@ class BadanPengurusController extends Controller
      */
     public function index()
     {
-        //
+        return view('badanpengurus.index');
     }
 
     /**

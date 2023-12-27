@@ -79,7 +79,7 @@ Route::prefix('/login')->group(function () {
     Route::post('/check', [LoginController::class, 'login']);
     Route::post('/signout', [LoginController::class, 'signout']);
 });
-Route::prefix('/forget')->group(function () {
+Route::prefix('/lupapassword')->group(function () {
     Route::get('/', [ForgetPassController::class, 'index']);
 });
 
