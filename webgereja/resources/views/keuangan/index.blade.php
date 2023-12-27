@@ -51,6 +51,14 @@
         <br>
 
         <div class="d-block mx-auto text-center">
+            <div class="row">
+                <div class="col-lg-8">
+                    
+                </div>
+                <div class="col-lg-4">
+                    @include('keuangan.tambah')
+                </div>
+            </div>
             @include('keuangan.daftar')
         </div>
     </div>

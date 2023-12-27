@@ -58,6 +58,7 @@ Route::prefix('/keuangan')->group(function () {
     Route::get('/', [KeuanganController::class, 'index']);
     Route::post('/hapus/{id}', [KeuanganController::class, 'hapus']);
     Route::post('/ubah/{id}', [KeuanganController::class, 'ubah']);
+    Route::post('/tambah', [KeuanganController::class, 'tambah']);
 });
 Route::prefix('/statistik')->group(function () {
     Route::get('/', [StatistikController::class, 'index']);

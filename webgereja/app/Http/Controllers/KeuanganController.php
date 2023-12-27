@@ -42,6 +42,26 @@ class KeuanganController extends Controller
             ->with('sektor', $sektor);
     }
 
+    public function tambah(Request $request)
+    {
+        KeuanganModel::create([
+            'id' => Generator::getUUID(),
+            'tipe' => $request->tipe, 
+            'kategori' => $request->kategori, 
+            'sektor' => $request->sektor, 
+            'konteks' => $request->konteks, 
+            'nominal' => $request->nominal, 
+            'tanggal_terima' => $request->tanggal_terima, 
+            'masuk_pada' => $request->masuk_pada,
+            'created_at' => date("Y-m-d H:i:s"), 
+            'created_by' => Generator::getUserId(),
+            'updated_at' => null,
+            'updated_by' => null
+        ]);
+
+        return redirect()->back();
+    }
+
     public function ubah(Request $request, $id)
     {
         KeuanganModel::where('id', $id)->update([
