@@ -1,3 +1,7 @@
+<?php 
+    use App\Helpers\Converter;
+?>
+
 <table class="table table-paginate text-start" id="keuanganTable" cellspacing="0">
     <thead>
         <tr>
@@ -17,17 +21,17 @@
         @foreach($keuangan as $ku)
             <tr>
                 <th scope="row">{{$i+1}}</th>
-                <td>{{ucfirst($ku->tipe)}}</td>
-                <td>{{ucfirst($ku->kategori)}}</td>
+                <td>{{Converter::getCleanKamus($ku->tipe)}}</td>
+                <td>{{Converter::getCleanKamus($ku->kategori)}}</td>
                 <td>
-                    <b>Sektor : {{ucfirst($ku->sektor)}}</b><br>
+                    <b>Sektor : {{Converter::getCleanKamus($ku->sektor)}}</b><br>
                     {{$ku->konteks}}
                 </td>
                 <td>
                     Rp. {{number_format($ku->nominal, 0, ',', '.')}}
                 </td>
                 <td>{{date("Y-m-d", strtotime($ku->tanggal_terima))}}</td>
-                <td>{{ucfirst($ku->masuk_pada)}}</td>
+                <td>{{Converter::getCleanKamus($ku->masuk_pada)}}</td>
                 <td>
                     <button class="btn btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#ubahKeuangan{{$ku->id}}Modal"><i class="fa-solid fa-pen-to-square"></i></button>
                     @include('keuangan.ubah')

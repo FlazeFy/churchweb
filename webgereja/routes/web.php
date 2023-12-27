@@ -56,6 +56,8 @@ Route::prefix('/warta')->group(function () {
 });
 Route::prefix('/keuangan')->group(function () {
     Route::get('/', [KeuanganController::class, 'index']);
+    Route::post('/hapus/{id}', [KeuanganController::class, 'hapus']);
+    Route::post('/ubah/{id}', [KeuanganController::class, 'ubah']);
 });
 Route::prefix('/statistik')->group(function () {
     Route::get('/', [StatistikController::class, 'index']);
