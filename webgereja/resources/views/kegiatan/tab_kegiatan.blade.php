@@ -39,6 +39,22 @@
             @if($km->kamus_slug == 'koor')
                 @include('kegiatan.tabs.koor')
             @endif
+
+            @if($km->kamus_slug == 'partangiangan')
+                @include('kegiatan.tabs.partangiangan')
+            @endif
+
+            @if($km->kamus_slug == 'baptisan')
+                @include('kegiatan.tabs.baptisan')
+            @endif
+
+            @if($km->kamus_slug == 'katekisasi')
+                @include('kegiatan.tabs.katekisasi')
+            @endif
+
+            @if($km->kamus_slug == 'pp_remaja')
+                @include('kegiatan.tabs.pp-remaja')
+            @endif
         </div>
         @php($j++)
     @endforeach
