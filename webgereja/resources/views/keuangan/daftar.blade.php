@@ -18,6 +18,9 @@
     </thead>
     <tbody>
         @php($i = 0)
+        @php($pemasukan = 0)
+        @php($pengeluaran = 0)
+
         @foreach($keuangan as $ku)
             <tr>
                 <th scope="row">{{$i+1}}</th>
@@ -48,7 +51,16 @@
                     @endif
                 </td>
             </tr>
+
+            @if($ku->tipe == "pemasukan")
+                @php($pemasukan += $ku->nominal)
+            @elseif($ku->tipe == "pengeluaran")
+                @php($pengeluaran += $ku->nominal)
+            @endif
+
             @php($i++)
         @endforeach
     </tbody>
 </table>
+<hr>
+@include('keuangan.summary')

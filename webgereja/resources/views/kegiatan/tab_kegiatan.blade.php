@@ -55,6 +55,26 @@
             @if($km->kamus_slug == 'pp_remaja')
                 @include('kegiatan.tabs.pp-remaja')
             @endif
+
+            @if($km->kamus_slug == 'sekolah_minggu')
+                @include('kegiatan.tabs.sekolah_minggu')
+            @endif
+
+            @if($km->kamus_slug == 'seksi_lansia')
+                @include('kegiatan.tabs.seksi', ['type'=>'seksi_lansia'])
+            @endif
+
+            @if($km->kamus_slug == 'seksi_pria')
+                @include('kegiatan.tabs.seksi', ['type'=>'seksi_pria'])
+            @endif
+
+            @if($km->kamus_slug == 'seksi_wanita')
+                @include('kegiatan.tabs.seksi', ['type'=>'seksi_wanita'])
+            @endif
+
+            @if($km->kamus_slug == 'seksi_diakonia')
+                @include('kegiatan.tabs.seksi', ['type'=>'seksi_diakonia'])
+            @endif
         </div>
         @php($j++)
     @endforeach

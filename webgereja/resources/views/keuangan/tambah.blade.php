@@ -1,4 +1,4 @@
-<button class="btn btn-success w-100 h-100" data-bs-toggle="modal" data-bs-target="#tambahKeuanganModal"><i class="fa-solid fa-plus"></i> Tambah Jemaat</button>
+<button class="btn btn-success w-100 h-100" data-bs-toggle="modal" data-bs-target="#tambahKeuanganModal"><i class="fa-solid fa-plus"></i> Tambah Keuangan</button>
 <div class="modal fade" id="tambahKeuanganModal" tabindex="-1" aria-labelledby="tambahJemaatModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
