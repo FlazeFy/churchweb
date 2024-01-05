@@ -70,7 +70,7 @@
                         <td>2</td>
                         <td>21 - 24 September 2023</td>
                         <td>
-                            GKPI Pangantaran Ressort (Jl. Besar Tangga Batu Dusun III, Huta Gunung, Kec. Hatonduhan, Kabupaten Simalungun, Sumatera Utara )
+                            GKPI Pangantaran Ressort(Jl. Besar Tangga Batu Dusun III, Huta Gunung, Kec. Hatonduhan, Kabupaten Simalungun, Sumatera Utara )
                         </td>
                         <td>Kunjungan pada Kegiatan berlangsung selama 4 hari. PP / Remaja melakukan kunjungan dengan PP / Remaja Gereja GKPI Pangantaran Ressort</td>
                     </tr>

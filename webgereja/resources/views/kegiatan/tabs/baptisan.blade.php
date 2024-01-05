@@ -13,10 +13,36 @@
             </p>
         </div>
         <div class="row">
-            <h5>Data Yang Menerima Data Baptis 2023</h5>
-            <div class="col-lg-4">
-                <button type="button" class="btn btn-labeled btn-danger" >
-                <span class="btn-label"><i class="fa fa-file"></i></span> Download File PDF</button>
+            <h5>DATA ANAK YANG AKAN DIBAPTIS 2023</h5>
+            <div class="col">
+                <table class="table text-center" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama Lengkap</th>
+                            <th scope="col">Sektor</th>
+                            <th scope="col">Orang Tua</th>
+                            <th scope="col">Jenis Kelamin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Yohannes marturia Turnip</td>
+                            <td>Efesus</td>
+                            <td>P. Trunip / S.Hutasoit</td>
+                            <td>Laki-laki</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Maria Magdalena Aulia Barus</td>
+                            <td>Efesus</td>
+                            <td>B.Barus / C.Ginting</td>
+                            <td>Perempuan</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

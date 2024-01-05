@@ -38,36 +38,7 @@
         </div>
 
     <br><br>
-   
-
-    <h2>Nama-Nama Penatua GKPI Jemaat Khusus Tebingtinggi</h2>
-    <div class="col d-inline-block">
-        <ol>
-            <li>Pnt. M.W. Sirait</li>
-            <li>Pnt. M. Sinaga, SPd</li>
-            <li>Pnt. J.P. Siahaan</li>
-            <li>Pnt. A. Napitupulu SPd.MSi</li>
-            <li>Pnt. P. Sijabat SPd</li>
-            <li>Pnt. M. Lumbantobing ST</li>
-            <li>Pnt. Y. Br. Tampubolon SAg</li>
-            <li>Pnt. Ev. E. Br. Hutagalung</li>
-            <li>Pnt. Drs.J. Hutagalung</li>
-            <li>Pnt. Ir. R. Simanjuntak</li>
-            <li>Pnt. S.. Pakpahan</li>
-            <li>Pnt. R. Br. Simanjuntak</li>
-            <li>Pnt. S. Hasibuan</li>
-            <li>Pnt. J. Gultom</li>
-            <li>Pnt. N. Naiborhu</li>
-            <li>Pnt. L. Hutagalung</li>
-            <li>Pnt.M Sibagariang</li>
-            <li>Pnt.P.br Siahaan</li>
-            <li>C.Pnt. Rahmawatiy D. Br. Pasaribu, A.Md</li>
-            <li>CPnt.D.Br Purba</li>
-            <li>CPnt.H.Turnip SE</li>
-        </ol>
-    </div>
-    
-        
+        @include('badanpengurus.table.tabel')
     </div>
     
     <!-- Footer -->

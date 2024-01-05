@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BphModel;
 use Illuminate\Http\Request;
 
 class BadanPengurusController extends Controller
@@ -11,7 +12,13 @@ class BadanPengurusController extends Controller
      */
     public function index()
     {
-        return view('badanpengurus.index');
+        $bph = BphModel::select('id', 'nama', 'jabatan', 'grup', 'created_at', 'created_by', 'updated_at', 'updated_by')
+        ->orderBy('grup', 'ASC')
+        ->orderBy('jabatan', 'ASC')
+        ->get();
+
+        return view('badanpengurus.index')
+        ->with('bph', $bph);
     }
 
     /**

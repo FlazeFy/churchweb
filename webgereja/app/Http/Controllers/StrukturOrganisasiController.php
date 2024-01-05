@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PengurusModel;
 use Illuminate\Http\Request;
 
 class StrukturOrganisasiController extends Controller
@@ -11,7 +12,13 @@ class StrukturOrganisasiController extends Controller
      */
     public function index()
     {
-        return view('struktur.index');
+        $pengurus = PengurusModel::select('id', 'nama', 'jabatan')
+        ->orderBy('nama', 'ASC')
+        ->get();
+
+        return view('struktur.index')
+        ->with('struktur_organisasi', $pengurus);
+
     }
 
     /**
