@@ -23,19 +23,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Novrida Situmorang</td>
-                            <td>Efesus</td>
-                            <td>Perempuan</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Anita Situmorang</td>
-                            <td>Efesus</td>
-                            <td>Perempuan</td>
-                        </tr>
-                        
+                        @php($i = 1)
+                        @foreach($peserta as $ps)
+                            @if($ps->tipe_peserta == "katekisasi")
+                                <tr>
+                                    <td>{{$i}}</td>
+                                    <td>{{ucwords($ps->nama)}}</td>
+                                    <td>{{ucwords($ps->sektor)}}</td>
+                                    <td>
+                                        @if($ps->jenis_kelamin == 1)
+                                            Laki-Laki
+                                        @else 
+                                            Perempuan
+                                        @endif
+                                    </td>
+                                </tr>
+                                @php($i++)
+                            @endif
+                        @endforeach
                     </tbody>
                 </table>
             </div>

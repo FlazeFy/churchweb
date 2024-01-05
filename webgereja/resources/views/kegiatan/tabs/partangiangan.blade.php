@@ -11,23 +11,30 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td scope="row">
-                1
-            </td>
-            <td>
-                Lorem
-            </td>
-            <td>
-                Lorem
-            </td>
-            <td>
-                Lorem
-            </td>
-            <td>
-                Lorem
-            </td>
-        </tr>
+        @php($i = 1)
+        @foreach($kegiatan as $kg)
+            @if($kg->tipe_jadwal == "partangiangan")
+                @php($props = json_decode($kg->tempat, true))
+                <tr>
+                    <td scope="row">
+                        {{$i}}
+                    </td>
+                    <td>
+                        {{$props['sektor']}}
+                    </td>
+                    <td>
+                        {{$kg->tgl_jadwal}}
+                    </td>
+                    <td>
+                        {{$props['nama']}}
+                    </td>
+                    <td>
+                        {{$props['alamat']}}
+                    </td>
+                </tr>
+                @php($i++)
+            @endif
+        @endforeach
     </tbody>
 </table>    
 

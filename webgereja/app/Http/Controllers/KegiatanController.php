@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\KamusModel;
 use App\Models\KegiatanModel;
+use App\Models\PesertaModel;
 
 class KegiatanController extends Controller
 {
@@ -18,6 +19,11 @@ class KegiatanController extends Controller
         $kamus = KamusModel::select('kamus_slug', 'kamus_nama')
             ->where('kamus_type','tipe_kegiatan')
             ->orderBy('kamus_nama', 'DESC')
+            ->get();
+
+        // Get all peserta
+        $peserta = PesertaModel::select('nama', 'sektor', 'ortu', 'jenis_kelamin', 'tipe_peserta', 'created_at', 'created_by', 'updated_at', 'updated_by')
+            ->orderBy('created_at', 'DESC')
             ->get();
 
         // Get all kegiatan by tipe
@@ -33,6 +39,7 @@ class KegiatanController extends Controller
 
         return view('kegiatan.index')
             ->with('kamus', $kamus)
+            ->with('peserta', $peserta)
             ->with('kegiatan', $kegiatan);
     }
 

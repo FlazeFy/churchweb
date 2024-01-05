@@ -26,21 +26,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Yohannes marturia Turnip</td>
-                            <td>Efesus</td>
-                            <td>P. Trunip / S.Hutasoit</td>
-                            <td>Laki-laki</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Maria Magdalena Aulia Barus</td>
-                            <td>Efesus</td>
-                            <td>B.Barus / C.Ginting</td>
-                            <td>Perempuan</td>
-                        </tr>
-                        
+                        @php($i = 1)
+                        @foreach($peserta as $ps)
+                            @if($ps->tipe_peserta == "baptis")
+                                <tr>
+                                    <td>{{$i}}</td>
+                                    <td>{{ucwords($ps->nama)}}</td>
+                                    <td>{{ucwords($ps->sektor)}}</td>
+                                    <td>{{ucwords($ps->ortu)}}</td>
+                                    <td>
+                                        @if($ps->jenis_kelamin == 1)
+                                            Laki-Laki
+                                        @else 
+                                            Perempuan
+                                        @endif
+                                    </td>
+                                </tr>
+                                @php($i++)
+                            @endif
+                        @endforeach 
                     </tbody>
                 </table>
             </div>

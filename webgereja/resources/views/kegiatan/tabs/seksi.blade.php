@@ -1,6 +1,5 @@
 @php($i = 0)
 @foreach($kegiatan as $kg)
-
     @if($kg->tipe_jadwal == $type)
         @php($props = json_decode($kg->penanggung_jawab, true))
         <div class="row mb-4 pb-2">
@@ -49,7 +48,12 @@
                 @endif
             </div>
         </div>
+        @php($i++)
     @endif
-
-    @php($i++)
 @endforeach
+@if($i == 0) 
+    <div class="text-center">
+        <br><img src="{{asset('assets/no_data.png')}}" alt='no_data.png' style='width:30%;'><br>
+        <h5>Tidak ada data kegiatan</h5>
+    </div>
+@endif
