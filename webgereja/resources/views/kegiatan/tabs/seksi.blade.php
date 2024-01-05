@@ -15,8 +15,8 @@
                     @if($props['judul'] != null)
                         <p class="mb-2">Judul : {{$props['judul']}}</p>
                     @endif
-                    <p class="mb-2">Hari / Tgl : {{$kg->tgl_jadwal}}</p>
-                    <p class="mb-2">Pukul : {{$kg->waktu_mulai}} - 
+                    <p class="mb-2">Hari / Tgl : {{date("D Y-m-d", strtotime($kg->waktu_mulai))}}</p>
+                    <p class="mb-2">Pukul : {{date("H:i", strtotime($kg->waktu_mulai))}} - 
                         @if($kg->waktu_selesai != null)
                             {{$kg->waktu_selesai}}
                         @else 
@@ -34,7 +34,7 @@
                     @if($props['judul'] != null)
                         <p class="mb-2">Judul : {{$props['judul']}}</p>
                     @endif
-                    <p class="mb-2">Hari / Tgl : {{$kg->tgl_jadwal}}</p>
+                    <p class="mb-2">Hari / Tgl : {{date("Y-m-d h:i", strtotime($kg->waktu_mulai))}}</p>
                     <p class="mb-2">Pukul : {{$kg->waktu_mulai}} - 
                         @if($kg->waktu_selesai != null)
                             {{$kg->waktu_selesai}}

@@ -38,7 +38,7 @@
                     {{$clean_tipe_jadwal}}
                 </td>
                 <td>
-                    {{date("Y-m-d, D", strtotime($kg->tgl_jadwal))}}
+                    {{date("Y-m-d, D", strtotime($kg->waktu_mulai))}}
                 </td>
                 <td>
                     {{date("H:i", strtotime($kg->waktu_mulai))}} - 

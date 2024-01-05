@@ -27,8 +27,8 @@ class KegiatanController extends Controller
             ->get();
 
         // Get all kegiatan by tipe
-        $kegiatan = KegiatanModel::select('id', 'tipe_jadwal', 'tgl_jadwal', 'waktu_mulai', 'waktu_selesai', 'tempat', 'penanggung_jawab', 'keterangan', 'hasil')
-            ->orderBy('tgl_jadwal', 'DESC');
+        $kegiatan = KegiatanModel::select('id', 'tipe_jadwal', 'waktu_mulai', 'waktu_selesai', 'tempat', 'penanggung_jawab', 'keterangan', 'hasil')
+            ->orderBy('waktu_mulai', 'DESC');
 
             // Filtering
             $slct_tipe_kegiatan = session()->get('selected_tipe_kegiatan');

@@ -23,7 +23,15 @@
                         {{$props['sektor']}}
                     </td>
                     <td>
-                        {{$kg->tgl_jadwal}}
+                        {{date("Y-m-d H:i", strtotime($kg->waktu_mulai))}}
+                        @if($kg->waktu_selesai != null)
+                            - 
+                            @if($kg->waktu_selesai == $kg->waktu_mulai)
+                                {{date("H:i", strtotime($kg->waktu_selesai))}}
+                            @else 
+                                {{date("Y-m-d H:i", strtotime($kg->waktu_selesai))}}
+                            @endif
+                        @endif
                     </td>
                     <td>
                         {{$props['nama']}}

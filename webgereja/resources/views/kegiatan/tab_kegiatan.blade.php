@@ -57,7 +57,7 @@
             @endif
 
             @if($km->kamus_slug == 'sekolah_minggu')
-                @include('kegiatan.tabs.sekolah_minggu')
+                @include('kegiatan.tabs.seksi', ['type'=>'sekolah_minggu'])
             @endif
 
             @if($km->kamus_slug == 'seksi_lansia')

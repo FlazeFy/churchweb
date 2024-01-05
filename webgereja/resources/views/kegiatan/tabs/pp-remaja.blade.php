@@ -28,19 +28,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Rabu, 3 Januari</td>
-                        <td>10.00 WIB</td>
-                        <td>Kota Medan</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Sabtu, 6 Januari</td>
-                        <td>13.00 WIB</td>
-                        <td>Kota Medan</td>
-                    </tr>
-                    
+                    @php($i = 1)
+                    @foreach($kegiatan as $kg)
+                        @if($kg->tipe_jadwal == "pa")
+                            @php($tempat = json_decode($kg->tempat, true))
+                            <tr>
+                                <td>{{$i}}</td>
+                                <td>{{ date("D, Y-m-d", strtotime($kg->waktu_mulai)) }}</td>
+                                <td>{{ date("H : i", strtotime($kg->waktu_mulai)) }}</td>
+                                <td>{{$tempat['nama']}}</td>
+                            </tr>
+                            @php($i++)
+                        @endif
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -58,22 +58,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>4 - 6 Agustus 2023</td>
-                        <td>
-                            GKPI Siantar Kota
-                            Jl. Simbolon, Teladan, Kec. Siantar Bar., Kota Pematang Siantar, Sumatera Utara </td>
-                        <td>Kunjungan yang dilakukan berlangsung selama 3 hari. PP / Remaja melakukan kunjungan dengan PP / Remaja Gereja GKPI Siantar Kota</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>21 - 24 September 2023</td>
-                        <td>
-                            GKPI Pangantaran Ressort(Jl. Besar Tangga Batu Dusun III, Huta Gunung, Kec. Hatonduhan, Kabupaten Simalungun, Sumatera Utara )
-                        </td>
-                        <td>Kunjungan pada Kegiatan berlangsung selama 4 hari. PP / Remaja melakukan kunjungan dengan PP / Remaja Gereja GKPI Pangantaran Ressort</td>
-                    </tr>
+                    @php($i = 1)
+                    @foreach($kegiatan as $kg)
+                        @if($kg->tipe_jadwal == "pp/remaja")
+                            @php($tempat = json_decode($kg->tempat, true))
+                            <tr>
+                                <td>{{$i}}</td>
+                                <td>{{ date("Y-m-d", strtotime($kg->waktu_mulai)) }}
+                                    @if($kg->waktu_selesai != null)
+                                        @if($kg->waktu_mulai != $kg->waktu_selesai)
+                                            - {{ date("Y-m-d", strtotime($kg->waktu_selesai)) }}
+                                        @endif
+                                    @endif
+                                </td>
+                                <td>{{$tempat['nama']}}</td>
+                                <td>{{$kg->keterangan}}</td>
+                            </tr>
+                            @php($i++)
+                        @endif
+                    @endforeach
                 </tbody>
             </table>
         </div>

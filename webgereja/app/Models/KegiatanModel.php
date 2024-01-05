@@ -12,5 +12,5 @@ class KegiatanModel extends Model
 
     protected $table = 'kegiatan';
     protected $primaryKey = 'id';
-    protected $fillable = ['id', 'tipe_jadwal', 'tgl_jadwal', 'waktu_mulai', 'waktu_selesai', 'tempat', 'penanggung_jawab', 'keterangan', 'hasil', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted_at', 'deleted_by'];
+    protected $fillable = ['id', 'tipe_jadwal', 'waktu_mulai', 'waktu_selesai', 'tempat', 'penanggung_jawab', 'keterangan', 'hasil', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted_at', 'deleted_by'];
 }
