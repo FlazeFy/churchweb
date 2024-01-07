@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\PengurusModel;
+use App\Models\TataIbadahModel;
 
 class LandingController extends Controller
 {
@@ -21,8 +22,13 @@ class LandingController extends Controller
             ->orderBy('nama', 'DESC')
             ->get();
 
+        $tataibadah = TataIbadahModel::select('id','nama','tanggal','file_url','created_at', 'created_by', 'updated_at', 'updated_by')
+            ->orderBy('tanggal', 'DESC')
+            ->get();
+
         return view('landing.index')
-            ->with('pengurus', $pengurus);
+            ->with('pengurus', $pengurus)
+            ->with('tataibadah', $tataibadah);
     }
 
     /**

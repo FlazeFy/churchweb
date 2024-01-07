@@ -51,14 +51,16 @@
         <br>
 
         <div class="d-block mx-auto text-center">
-            <div class="row">
-                <div class="col-lg-8">
-                    
+            @if(session()->get("token_key") != null)
+                <div class="row">
+                    <div class="col-lg-8">
+                        
+                    </div>
+                    <div class="col-lg-4">
+                        @include('keuangan.tambah')
+                    </div>
                 </div>
-                <div class="col-lg-4">
-                    @include('keuangan.tambah')
-                </div>
-            </div>
+            @endif
             @include('keuangan.daftar')
         </div>
     </div>

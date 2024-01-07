@@ -45,14 +45,13 @@
   @include('components.bars.navbar')
 
   <div class="main">
-    <!-- include('kegiatan.filtertipe') -->
-    <br>
-
-    <!-- Admin -->
-    <!-- include('kegiatan.table') -->
-
-    <!-- General User -->
-    @include('kegiatan.tab_kegiatan')
+    @if(session()->get("token_key") == null)
+      @include('kegiatan.filtertipe')
+      <br>
+      @include('kegiatan.tab_kegiatan')
+    @else
+      @include('kegiatan.table')
+    @endif
   </div>
 
   <!-- Footer -->

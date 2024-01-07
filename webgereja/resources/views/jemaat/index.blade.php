@@ -52,12 +52,14 @@
 
     <div class="d-block mx-auto text-center">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-<?php if(session()->get("token_key") != null) { echo "8";} else { "12"; } ?>">
           @include('jemaat.summary')
         </div>
+        @if(session()->get("token_key") != null)
         <div class="col-lg-4">
           @include('jemaat.tambah')
         </div>
+        @endif
       </div>
       <hr>
 

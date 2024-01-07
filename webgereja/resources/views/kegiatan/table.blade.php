@@ -20,9 +20,10 @@
             <th scope="col">Tipe</th>
             <th scope="col">Tgl / Hari</th>
             <th scope="col">Jam</th>
-            <th scope="col">Tempat</th>
+            <th scope="col" style="min-width:var(--tcolMinMD);">Tempat</th>
             <th scope="col">Keterangan</th>
             <th scope="col" style="min-width:var(--tcolMinSM);">Kehadiran</th>
+            <th scope="col">Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -51,7 +52,10 @@
                 <td>
                     @php($tp = json_decode($kg->tempat))
                     {{$tp->nama}} 
-                    ({{$tp->sektor}} - {{$tp->alamat}})
+                    @if(isset($tp->sektor) && isset($tp->alamat))
+                        <br><b>Sektor : </b>{{$tp->sektor}} <br>
+                        <b>Alamat : </b>{{$tp->alamat}}
+                    @endif
                 </td>
                 <td>{{$kg->keterangan}}</td>
                 <td>
@@ -72,6 +76,10 @@
                             orang
                         <br>
                     @endif
+                </td>
+                <td>
+                    <button class="btn btn-warning mb-2"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                 </td>
             </tr>
         @endforeach
