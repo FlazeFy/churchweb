@@ -75,3 +75,37 @@ embed {
 .img-icon {
     width: 100%;
 }
+/* Mobile style */
+@media (max-width: 767px) {
+    body{
+        width: fit-content;
+    }
+    .btn-tab-holder {
+        margin:0 !important;
+        margin-bottom: var(--spaceSM) !important;
+    }
+    .navbar-brand h3 {
+        font-size : var(--textLG);
+    }
+    .section_title_main {
+        font-size: var(--textXJumbo) !important;
+        margin-top: var(--spaceJumbo);
+    }
+    .main {
+        width: fit-content;
+    }
+    #welcomehome{
+        display: none !important;
+    }
+}
+
+/* Tablet style */
+@media (min-width: 768px) and (max-width: 1023px) {
+  
+}
+
+/* Mobile & Tablet style */
+@media screen and (max-width: 1023px) {
+
+}
+

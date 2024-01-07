@@ -32,7 +32,7 @@
     <div class="main">
         <div class="row mx-auto d-flex align-items-center">
             <div class="col-lg-6 col-md-5 col-sm-12">
-                <img src="{{ asset('/assets/papi_j.png') }}" alt="" class="img img-fluid d-block mx-auto">
+                <img id = "welcomehome" src="{{ asset('/assets/papi_j.png') }}" alt="" class="img img-fluid d-block mx-auto">
             </div>
             <div class="col-lg-6 col-md-7 col-sm-12 pt-5">
                 <h1 class="my-4">Masuk</h1> 
