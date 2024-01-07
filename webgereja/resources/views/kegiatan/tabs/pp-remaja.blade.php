@@ -3,7 +3,7 @@
     <div class="col-lg-5">
         <img src="{{ asset('/assets/pp-remaja.png') }}" alt="" class="img img-fluid" width="400px">
     </div>
-    <div class="col-lg-7 text-center" >
+    <div class="col-lg-7 col-md-12 col-sm-12 text-center" >
         <h3>Info Panitia Natal!</h3>
         <p>
             Syalom! 
@@ -15,7 +15,7 @@
 </div>
 <br><br>
 <div class="row">
-    <div class="col-5">
+    <div class="col-lg-5 col-md-12 col-sm-12">
         <div class="mx-auto" style="max-width:500px">
             <h3 class="text text-black d-flex justify-content-center">Jadwal PA</h3>
             <table class="table text-center" cellspacing="0">
@@ -45,7 +45,7 @@
             </table>
         </div>
     </div>
-    <div class="col-7">
+    <div class="col-lg-7 col-md-12 col-sm-12">
         <div class="mx-auto" style="max-width:800px">
             <h3 class="text d-flex justify-content-center">Kunjungan PP/ Remaja - Ke Gereja lainnya </h3>
             <table class="table text-center" cellspacing="0">
