@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Helpers\Generator;
+
 use App\Models\PengurusModel;
 use App\Models\TataIbadahModel;
 
@@ -31,51 +33,25 @@ class LandingController extends Controller
             ->with('tataibadah', $tataibadah);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function tambahtataibadah(Request $request)
     {
-        //
+        TataIbadahModel::create([
+            'id' => Generator::getUUID(), 
+            'nama' => $request->nama, 
+            'tanggal' => $request->tanggal." ".$request->jam, 
+            'file_url' => $request->file_url, 
+            'created_at' => date("Y-m-d H:i"), 
+            'created_by' => Generator::getUserId(), 
+            'updated_at' => null, 
+            'updated_by' => null
+        ]);
+
+        return redirect()->back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function hapustataibadah($id){
+        TataIbadahModel::destroy($id);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->back();
     }
 }

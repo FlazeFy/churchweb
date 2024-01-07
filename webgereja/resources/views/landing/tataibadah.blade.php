@@ -1,4 +1,6 @@
 @include('components.typographies.section_title', ['title'=>'Tata Ibadah'])
+<br>
+@include('landing.tambahtataibadah')
 <table class="table table-paginate" id="tataIbadahTable" cellspacing="0">
     <thead>
         <tr>
@@ -19,7 +21,8 @@
                     <button class="btn btn-primary"><i class="fa-solid fa-download"></i></button>
                     @if(session()->get("token_key") != null)
                         <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusTataIbadah{{$ti->id}}Modal"><i class="fa-solid fa-trash"></i></button>
+                        @include('landing.hapus')
                     @endif
                 </td>
             </tr>

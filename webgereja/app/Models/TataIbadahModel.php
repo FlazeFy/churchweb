@@ -12,5 +12,5 @@ class TataIbadahModel extends Model
 
     protected $table = 'tata_ibadah';
     protected $primaryKey = 'id';
-    protected $fillable = ['id', 'nama', 'tanggal', 'url_file', 'created_at', 'created_by', 'updated_at', 'updated_by'];
+    protected $fillable = ['id', 'nama', 'tanggal', 'file_url', 'created_at', 'created_by', 'updated_at', 'updated_by'];
 }

@@ -29,6 +29,8 @@ use App\Http\Controllers\WartaJemaatController;
 
 Route::prefix('/')->group(function () {
     Route::get('/', [LandingController::class, 'index'])->name('landing');
+    Route::post('/tambahtataibadah', [LandingController::class, 'tambahtataibadah']);
+    Route::post('/hapustataibadah/{id}', [LandingController::class, 'hapustataibadah']);
 });
 
 Route::prefix('/rancangan')->group(function () {
