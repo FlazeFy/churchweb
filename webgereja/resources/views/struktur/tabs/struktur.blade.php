@@ -17,6 +17,9 @@
                 <tr>
                     <th scope="col">Nama</th>
                     <th scope="col">Jabatan</th>
+                    @if(session()->get("token_key") != null)
+                        <th scope="col">Aksi</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +27,13 @@
                 <tr>
                     <td>{{$s->nama}}</td>
                     <td>{{$s->jabatan}}</td>
+                    @if(session()->get("token_key") != null)
+                        <td>
+                            <button class="btn btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#ubahPengurusUtama{{$s->id}}Modal"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusPengurusUtama{{$s->id}}Modal"><i class="fa-solid fa-trash"></i></button>
+                            @include('struktur.hapus')
+                        </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>
@@ -40,18 +50,18 @@
             <h3 class="text text-white d-flex justify-content-center">KETUA BADAN PENGURUS HARIAN JEMAAT (BPHJ)</h3>
             <table class="table text-start" cellspacing="0">
                 <thead>
-                <tr>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Jabatan</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($bph as $b)
                     <tr>
-                        <td>{{$b->nama}}</td>
-                        <td>{{$b->grup}}</td>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Grup</th>
                     </tr>
-                @endforeach
+                </thead>
+                <tbody>
+                    @foreach($bph as $b)
+                        <tr>
+                            <td>{{$b->nama}}</td>
+                            <td>{{$b->grup}}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

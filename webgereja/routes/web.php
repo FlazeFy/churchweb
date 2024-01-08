@@ -73,6 +73,8 @@ Route::prefix('/sejarah')->group(function () {
 Route::prefix('/struktur')->group(function () {
     Route::get('/', [StrukturOrganisasiController::class, 'index']);
     Route::post('/tambahgrupjabatan/{type}', [StrukturOrganisasiController::class, 'tambahgrupjabatan']);
+    Route::post('/tambahpengurusutama', [StrukturOrganisasiController::class, 'tambahpengurusutama']);
+    Route::post('/hapuspengurusutama/{id}', [StrukturOrganisasiController::class, 'hapuspengurusutama']);
 });
 Route::prefix('/badanpengurus')->group(function () {
     Route::get('/', [BadanPengurusController::class, 'index']);

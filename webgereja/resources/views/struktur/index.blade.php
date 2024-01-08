@@ -37,10 +37,13 @@
             @include('components.typographies.section_title', ['title'=>'Struktur Organisasi'])
         </div>
 
-        <div class="d-inline-block">
-            @include('struktur.tambahgrupjabatan', ['type' => 'grup'])
-            @include('struktur.tambahgrupjabatan', ['type' => 'jabatan'])
-        </div>
+        @if(session()->get("token_key") != null)
+            <div class="d-inline-block">
+                @include('struktur.tambahgrupjabatan', ['type' => 'grup'])
+                @include('struktur.tambahgrupjabatan', ['type' => 'jabatan'])
+                @include('struktur.tambah')
+            </div>
+        @endif
         <br><br>
 
         <!-- Struktur Organisasi  -->

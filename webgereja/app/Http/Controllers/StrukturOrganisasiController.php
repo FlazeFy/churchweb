@@ -7,6 +7,7 @@ use App\Models\KamusModel;
 use App\Models\BphModel;
 
 use App\Helpers\Converter;
+use App\Helpers\Generator;
 
 use Illuminate\Http\Request;
 
@@ -59,5 +60,29 @@ class StrukturOrganisasiController extends Controller
         } else {
             return redirect()->back()->with('failed_message', "Gagal menambahkan $type, gunakan nama yang unik");
         }
+    }
+
+    public function tambahpengurusutama(Request $request)
+    {
+        PengurusModel::create([
+            'id' => Generator::getUUID(), 
+            'nama' => $request->nama, 
+            'jabatan' => $request->jabatan, 
+            'no_telp' => $request->no_telp, 
+            'img_url' => $request->img_url, 
+            'created_at' => date("Y-m-d H:i:s"), 
+            'created_by' => Generator::getUserId(),  
+            'updated_at' => null, 
+            'updated_by' => null
+        ]); 
+
+        return redirect()->back()->with('success_mini_message', "Sukses menambahkan pengurus");
+    }
+
+    public function hapuspengurusutama($id)
+    {
+        PengurusModel::destroy($id); 
+
+        return redirect()->back()->with('success_mini_message', "Sukses menghapus pengurus");
     }
 }

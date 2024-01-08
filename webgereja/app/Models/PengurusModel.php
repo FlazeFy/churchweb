@@ -12,5 +12,5 @@ class PengurusModel extends Model
 
     protected $table = 'pengurus';
     protected $primaryKey = 'id';
-    protected $fillable = ['id', 'nama', 'jenis_kelamin', 'alamat', 'sektor', 'jabatan', 'no_telp', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted_at', 'deleted_by'];
+    protected $fillable = ['id', 'nama', 'jabatan', 'img_url', 'created_at', 'created_by', 'updated_at', 'updated_by'];
 }
