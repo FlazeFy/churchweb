@@ -43,6 +43,7 @@ class StrukturOrganisasiController extends Controller
         $nama = $request->kamus_nama;
         $check = KamusModel::select('kamus_nama')
             ->where('kamus_nama', $nama)
+            ->where('kamus_type', $type)
             ->limit(1)
             ->get();
 

@@ -38,7 +38,9 @@
         </div>
 
     <br><br>
-        @include('badanpengurus.tambah')
+        @if(session()->get("token_key") != null)
+            @include('badanpengurus.tambah')
+        @endif
         @include('badanpengurus.table.tabel')
     </div>
     

@@ -12,7 +12,7 @@ class Converter
     }
 
     public static function getSlugKamus($val){
-        $res = strtolower(str_replace("_"," ", $val));
+        $res = strtolower(str_replace(" ","_", $val));
 
         $check = KamusModel::select('kamus_slug')
             ->where('kamus_slug', $res)

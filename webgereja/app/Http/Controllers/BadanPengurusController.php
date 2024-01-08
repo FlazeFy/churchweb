@@ -47,20 +47,24 @@ class BadanPengurusController extends Controller
         return redirect()->back()->with('success_message', "Sukses menambah BPH");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function hapus($id)
     {
-        //
+        BphModel::destroy($id);
+
+        return redirect()->back()->with('success_message', "Sukses menghapus BPH");        
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function ubah(Request $request, $id)
     {
-        //
+        BphModel::where('id',$id)->update([
+            'nama' => $request->nama, 
+            'jabatan' => $request->jabatan, 
+            'grup' => $request->grup, 
+            'updated_at' => date("Y-m-d H:i:s"), 
+            'updated_by' => Generator::getUserId()
+        ]);
+
+        return redirect()->back()->with('success_message', "Sukses mengubah BPH");        
     }
 
     /**
