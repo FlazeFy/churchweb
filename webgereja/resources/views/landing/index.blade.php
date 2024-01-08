@@ -67,7 +67,9 @@
   <!-- Footer -->
   @include('components.bars.footer')
 
-  <!--Modal-->
+  <!-- Modals -->
+  @include('components.modals.success')
+  @include('components.modals.failed')
   @include('components.modals.success_mini')
 </body>
 

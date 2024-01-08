@@ -21,11 +21,12 @@ class StrukturOrganisasiController extends Controller
             ->orderBy('nama', 'ASC')
             ->get();
 
-        $bph = BphModel::select('id', 'nama', 'jabatan')
-            ->orderBy('nama', 'ASC')
+        $bph = BphModel::select('id', 'nama', 'grup')
+            ->where('jabatan','pembimbing')
+            ->orderBy('grup', 'ASC')
             ->get();
 
-        $kamus = KamusModel::select('kamus_slug', 'kamus_nama')
+        $kamus = KamusModel::select('kamus_slug', 'kamus_type', 'kamus_nama')
             ->where('kamus_type', 'grup')
             ->orWhere('kamus_type', 'jabatan')
             ->get();
@@ -37,7 +38,7 @@ class StrukturOrganisasiController extends Controller
 
     }
 
-    public function tambahgrup(Request $request)
+    public function tambahgrupjabatan(Request $request, $type)
     {
         $nama = $request->kamus_nama;
         $check = KamusModel::select('kamus_nama')
@@ -49,13 +50,13 @@ class StrukturOrganisasiController extends Controller
             KamusModel::create([
                 'id' => null,
                 'kamus_slug' => Converter::getSlugKamus($nama), 
-                'kamus_type' => 'grup', 
+                'kamus_type' => $type, 
                 'kamus_nama' => $nama
             ]); 
 
-            return redirect()->back()->with('success_message', 'Sukses menambahkan grup');
+            return redirect()->back()->with('success_mini_message', "Sukses menambahkan $type");
         } else {
-            return redirect()->back()->with('failed_message', 'Gagal menambahkan grup, gunakan nama yang unik');
+            return redirect()->back()->with('failed_message', "Gagal menambahkan $type, gunakan nama yang unik");
         }
     }
 }

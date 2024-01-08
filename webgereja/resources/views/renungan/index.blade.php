@@ -58,5 +58,10 @@
 
     <!-- Footer -->
     @include('components.bars.footer')
+
+    <!-- Modals -->
+    @include('components.modals.success')
+    @include('components.modals.failed')
+    @include('components.modals.success_mini')
 </body>
 </html>

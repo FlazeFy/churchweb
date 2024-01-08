@@ -54,7 +54,7 @@ class RenunganController extends Controller
             'updated_by' => null
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success_message', "Sukses menambah renungan");;
     }
 
     /**

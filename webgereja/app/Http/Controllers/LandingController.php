@@ -46,7 +46,7 @@ class LandingController extends Controller
             'updated_by' => null
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success_message', "Sukses menambah tata ibadah");;
     }
 
     public function ubahtataibadah(Request $request, $id)
@@ -59,12 +59,12 @@ class LandingController extends Controller
             'updated_by' => Generator::getUserId()
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success_message', "Sukses mengubah tata ibadah");;
     }
 
     public function hapustataibadah($id){
         TataIbadahModel::destroy($id);
 
-        return redirect()->back();
+        return redirect()->back()->with('success_message', "Sukses menghapus tata ibadah");;
     }
 }

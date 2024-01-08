@@ -38,7 +38,8 @@
         </div>
 
         <div class="d-inline-block">
-            @include('struktur.tambahgrup')
+            @include('struktur.tambahgrupjabatan', ['type' => 'grup'])
+            @include('struktur.tambahgrupjabatan', ['type' => 'jabatan'])
         </div>
         <br><br>
 
@@ -48,5 +49,10 @@
     
     <!-- Footer -->
     @include('components.bars.footer')
+
+    <!-- Modals -->
+    @include('components.modals.success')
+    @include('components.modals.failed')
+    @include('components.modals.success_mini')
 </body>
 </html>

@@ -11,7 +11,7 @@
 <div class="row">
     @php ($before = '')
     @foreach ($bph as $b)
-    <div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="mx-auto" style="max-width:720px">
             @if ($b->grup != $before) 
                 <h3 class="text d-flex justify-content-center">{{$b->grup}}</h3>
@@ -21,7 +21,7 @@
                     <h6><b>{{$b->jabatan}}</b></h6>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h6>{{$b->nama}}</h6>
+                    <p class="mb-0">{{$b->nama}}</p>
                 </div>
             </div>
         </div>

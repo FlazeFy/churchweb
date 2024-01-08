@@ -59,7 +59,7 @@ class KeuanganController extends Controller
             'updated_by' => null
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success_message', "Sukses menambah keuangan");
     }
 
     public function ubah(Request $request, $id)
@@ -76,13 +76,13 @@ class KeuanganController extends Controller
             'updated_by' => Generator::getUserId()
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success_message', "Sukses mengubah keuangan");
     }
 
     public function hapus($id)
     {
         KeuanganModel::destroy($id);
 
-        return redirect()->back();
+        return redirect()->back()->with('success_message', "Sukses menghapus keuangan");
     }
 }

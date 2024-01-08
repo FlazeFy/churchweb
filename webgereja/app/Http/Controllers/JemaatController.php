@@ -61,7 +61,7 @@ class JemaatController extends Controller
             'deleted_by' => null
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success_message', "Sukses menambahkan jemaat");
     }
 
     public function ubah(Request $request, $id)
@@ -77,7 +77,7 @@ class JemaatController extends Controller
             'updated_by' => Generator::getUserId()
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success_message', "Sukses mengubah jemaat");
     }
 
     public function hapus($id)
@@ -87,6 +87,6 @@ class JemaatController extends Controller
             'deleted_by' => Generator::getUserId()
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success_message', "Sukses menghapus jemaat");
     }
 }
