@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\PengurusModel;
+use App\Models\KamusModel;
+use App\Models\BphModel;
+
+use App\Helpers\Converter;
+
 use Illuminate\Http\Request;
 
 class StrukturOrganisasiController extends Controller
@@ -13,59 +18,44 @@ class StrukturOrganisasiController extends Controller
     public function index()
     {
         $pengurus = PengurusModel::select('id', 'nama', 'jabatan')
-        ->orderBy('nama', 'ASC')
-        ->get();
+            ->orderBy('nama', 'ASC')
+            ->get();
+
+        $bph = BphModel::select('id', 'nama', 'jabatan')
+            ->orderBy('nama', 'ASC')
+            ->get();
+
+        $kamus = KamusModel::select('kamus_slug', 'kamus_nama')
+            ->where('kamus_type', 'grup')
+            ->orWhere('kamus_type', 'jabatan')
+            ->get();
 
         return view('struktur.index')
-        ->with('struktur_organisasi', $pengurus);
+            ->with('struktur_organisasi', $pengurus)
+            ->with('bph', $bph)
+            ->with('kamus', $kamus);
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function tambahgrup(Request $request)
     {
-        //
-    }
+        $nama = $request->kamus_nama;
+        $check = KamusModel::select('kamus_nama')
+            ->where('kamus_nama', $nama)
+            ->limit(1)
+            ->get();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if(count($check) == 0){
+            KamusModel::create([
+                'id' => null,
+                'kamus_slug' => Converter::getSlugKamus($nama), 
+                'kamus_type' => 'grup', 
+                'kamus_nama' => $nama
+            ]); 
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            return redirect()->back()->with('success_message', 'Sukses menambahkan grup');
+        } else {
+            return redirect()->back()->with('failed_message', 'Gagal menambahkan grup, gunakan nama yang unik');
+        }
     }
 }

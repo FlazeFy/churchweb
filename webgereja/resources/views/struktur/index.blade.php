@@ -37,10 +37,13 @@
             @include('components.typographies.section_title', ['title'=>'Struktur Organisasi'])
         </div>
 
-    <br><br>
-    <!-- Struktur Organisasi  -->
-    @include('struktur.tabs.struktur')
+        <div class="d-inline-block">
+            @include('struktur.tambahgrup')
+        </div>
+        <br><br>
 
+        <!-- Struktur Organisasi  -->
+        @include('struktur.tabs.struktur')
     </div>
     
     <!-- Footer -->

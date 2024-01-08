@@ -1,5 +1,5 @@
 <br><br><br>
-<div style="width:fit-content">
+<div style="width:100%">
     <div class="row my-4 text-center">
         <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="d-inline-block">

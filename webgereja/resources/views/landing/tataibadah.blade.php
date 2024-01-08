@@ -18,7 +18,7 @@
                 <td>{{date("Y-m-d H:i", strtotime($ti->tanggal))}}</td>
                 <td>{{$ti->nama}}</td>
                 <td>
-                    <button class="btn btn-primary"><i class="fa-solid fa-download"></i></button>
+                    <a class="btn btn-primary" href="{{$ti->file_url}}"><i class="fa-solid fa-download"></i></a>
                     @if(session()->get("token_key") != null)
                         @if(date("Y-m-d H:i") < date("Y-m-d H:i", strtotime($ti->tanggal)))
                             <button class="btn btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#ubahTataIbadah{{$ti->id}}Modal"><i class="fa-solid fa-pen-to-square"></i></button>
