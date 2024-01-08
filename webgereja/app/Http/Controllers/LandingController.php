@@ -49,6 +49,19 @@ class LandingController extends Controller
         return redirect()->back();
     }
 
+    public function ubahtataibadah(Request $request, $id)
+    {
+        TataIbadahModel::where('id', $id)->update([
+            'nama' => $request->nama, 
+            'tanggal' => $request->tanggal." ".$request->jam, 
+            'file_url' => $request->file_url, 
+            'updated_at' => date("Y-m-d H:i"), 
+            'updated_by' => Generator::getUserId()
+        ]);
+
+        return redirect()->back();
+    }
+
     public function hapustataibadah($id){
         TataIbadahModel::destroy($id);
 

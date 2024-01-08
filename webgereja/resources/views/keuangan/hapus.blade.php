@@ -9,7 +9,7 @@
                     @csrf
                     <h2 class="modal-title text-center mb-4">Hapus Keuangan</h2>
                     <p>Apakah Anda yakin ingin menghapus keuangan dengan konteks "{{$ku->konteks}}"?</p>
-                    <button class="btn btn-danger" type="submit"><i class="fa-solid fa-floppy-disk"></i> Hapus</button>
+                    <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i> Hapus</button>
                 </form>
             </div>
         </div>

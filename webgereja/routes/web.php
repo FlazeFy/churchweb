@@ -31,6 +31,7 @@ Route::prefix('/')->group(function () {
     Route::get('/', [LandingController::class, 'index'])->name('landing');
     Route::post('/tambahtataibadah', [LandingController::class, 'tambahtataibadah']);
     Route::post('/hapustataibadah/{id}', [LandingController::class, 'hapustataibadah']);
+    Route::post('/ubahtataibadah/{id}', [LandingController::class, 'ubahtataibadah']);
 });
 
 Route::prefix('/rancangan')->group(function () {

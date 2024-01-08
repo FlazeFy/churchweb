@@ -20,7 +20,10 @@
                 <td>
                     <button class="btn btn-primary"><i class="fa-solid fa-download"></i></button>
                     @if(session()->get("token_key") != null)
-                        <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                        @if(date("Y-m-d H:i") < date("Y-m-d H:i", strtotime($ti->tanggal)))
+                            <button class="btn btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#ubahTataIbadah{{$ti->id}}Modal"><i class="fa-solid fa-pen-to-square"></i></button>
+                        @endif
+                        @include('landing.ubahtataibadah')
                         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusTataIbadah{{$ti->id}}Modal"><i class="fa-solid fa-trash"></i></button>
                         @include('landing.hapus')
                     @endif
