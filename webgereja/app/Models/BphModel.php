@@ -12,5 +12,5 @@ class BphModel extends Model
 
     protected $table = 'bph';
     protected $primaryKey = 'id';
-    protected $fillable = ['id', 'nama', 'jabatan', 'grup', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted_at', 'deleted_by'];
+    protected $fillable = ['id', 'nama', 'jabatan', 'grup', 'created_at', 'created_by', 'updated_at', 'updated_by'];
 }

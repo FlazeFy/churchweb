@@ -38,6 +38,7 @@
         </div>
 
     <br><br>
+        @include('badanpengurus.tambah')
         @include('badanpengurus.table.tabel')
     </div>
     

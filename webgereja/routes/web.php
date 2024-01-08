@@ -76,6 +76,7 @@ Route::prefix('/struktur')->group(function () {
 });
 Route::prefix('/badanpengurus')->group(function () {
     Route::get('/', [BadanPengurusController::class, 'index']);
+    Route::post('/tambah', [BadanPengurusController::class, 'tambah']);
 });
 
 Route::prefix('/login')->group(function () {
