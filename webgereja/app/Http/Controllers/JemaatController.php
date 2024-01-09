@@ -36,6 +36,10 @@ class JemaatController extends Controller
             ->groupBy('status')
             ->get();   
 
+        //Set active nav
+        session()->put('active_nav', 'data_gereja');
+        session()->put('active_subnav', 'jemaat');
+
         return view('jemaat.index')
             ->with('jemaat', $jemaat)
             ->with('sektor', $sektor)

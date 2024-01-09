@@ -35,6 +35,10 @@ class KeuanganController extends Controller
             ->orderBy('created_at', 'ASC')
             ->get();
 
+        //Set active nav
+        session()->put('active_nav', 'data_gereja');
+        session()->put('active_subnav', 'keuangan');
+
         return view('keuangan.index')
             ->with('keuangan', $keuangan)
             ->with('kategori', $kategori)

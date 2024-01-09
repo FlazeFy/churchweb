@@ -28,6 +28,10 @@ class LandingController extends Controller
             ->orderBy('tanggal', 'DESC')
             ->get();
 
+        //Set active nav
+        session()->put('active_nav', 'beranda');
+        session()->forget('active_subnav');
+
         return view('landing.index')
             ->with('pengurus', $pengurus)
             ->with('tataibadah', $tataibadah);

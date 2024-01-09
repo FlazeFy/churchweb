@@ -11,6 +11,10 @@ class SejarahGerejaController extends Controller
      */
     public function index()
     {
+        //Set active nav
+        session()->put('active_nav', 'tentang_gereja');
+        session()->put('active_subnav', 'sejarah');
+
         return view('sejarah.index');
     }
 

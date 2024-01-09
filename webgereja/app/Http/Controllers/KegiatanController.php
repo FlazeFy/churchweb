@@ -37,6 +37,10 @@ class KegiatanController extends Controller
             }
             $kegiatan = $kegiatan->get();
 
+        //Set active nav
+        session()->put('active_nav', 'kategori');
+        session()->put('active_subnav', 'kegiatan');
+
         return view('kegiatan.index')
             ->with('kamus', $kamus)
             ->with('peserta', $peserta)

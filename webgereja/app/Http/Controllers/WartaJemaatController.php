@@ -16,6 +16,10 @@ class WartaJemaatController extends Controller
             ->orderBy('created_at', 'DESC')
             ->get();
 
+        //Set active nav
+        session()->put('active_nav', 'data_gereja');
+        session()->put('active_subnav', 'warta');
+
         return view('warta.index')
             ->with('warta',$warta);
     }

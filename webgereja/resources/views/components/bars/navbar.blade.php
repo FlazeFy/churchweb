@@ -9,37 +9,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item">
-                <a class="nav-link mx-2 active" href="/">Beranda</a>
+                <a class="nav-link mx-2 <?php if(session()->get('active_nav') == 'beranda'){ echo 'active'; }?>" href="/">Beranda</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Kategori
+                <a class="nav-link dropdown-toggle <?php if(session()->get('active_nav') == 'kategori'){ echo 'active'; }?>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Kategori
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/rancangan">Rancangan Program</a></li>
-                    <li><a class="dropdown-item" href="/renungan">Renungan</a></li>
-                    <li><a class="dropdown-item" href="/kegiatan">Kegiatan</a></li>
+                    <li><a class="dropdown-item <?php if(session()->get('active_subnav') == 'rancangan_program'){ echo 'active'; }?>" href="/rancangan">Rancangan Program</a></li>
+                    <li><a class="dropdown-item <?php if(session()->get('active_subnav') == 'renungan'){ echo 'active'; }?>" href="/renungan">Renungan</a></li>
+                    <li><a class="dropdown-item <?php if(session()->get('active_subnav') == 'kegiatan'){ echo 'active'; }?>" href="/kegiatan">Kegiatan</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle <?php if(session()->get('active_nav') == 'data_gereja'){ echo 'active'; }?>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Data Gereja
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/jemaat">Jemaat</a></li>
-                    <li><a class="dropdown-item" href="/warta">Warta Jemaat</a></li>
-                    <li><a class="dropdown-item" href="/keuangan">Keuangan</a></li>
-                    <li><a class="dropdown-item" href="/statistik">Statistik Jemaat</a></li>
+                    <li><a class="dropdown-item <?php if(session()->get('active_subnav') == 'jemaat'){ echo 'active'; }?>" href="/jemaat">Jemaat</a></li>
+                    <li><a class="dropdown-item <?php if(session()->get('active_subnav') == 'warta'){ echo 'active'; }?>" href="/warta">Warta Jemaat</a></li>
+                    <li><a class="dropdown-item <?php if(session()->get('active_subnav') == 'keuangan'){ echo 'active'; }?>" href="/keuangan">Keuangan</a></li>
+                    <li><a class="dropdown-item <?php if(session()->get('active_subnav') == 'statistik'){ echo 'active'; }?>" href="/statistik">Statistik Jemaat</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle <?php if(session()->get('active_nav') == 'tentang_gereja'){ echo 'active'; }?>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Tentang Gereja
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/sejarah">Sejarah Gereja</a></li>
-                    <li><a class="dropdown-item" href="/struktur">Struktur Organisasi </a></li>
-                    <li><a class="dropdown-item" href="/badanpengurus">Badan Pengurus Harian</a></li>
+                    <li><a class="dropdown-item <?php if(session()->get('active_subnav') == 'sejarah'){ echo 'active'; }?>" href="/sejarah">Sejarah Gereja</a></li>
+                    <li><a class="dropdown-item <?php if(session()->get('active_subnav') == 'struktur'){ echo 'active'; }?>" href="/struktur">Struktur Organisasi </a></li>
+                    <li><a class="dropdown-item <?php if(session()->get('active_subnav') == 'badan_pengurus'){ echo 'active'; }?>" href="/badanpengurus">Badan Pengurus Harian</a></li>
                 </ul>
             </li>
             </ul>
