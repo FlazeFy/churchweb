@@ -8,6 +8,7 @@ use App\Helpers\Generator;
 
 use App\Models\PengurusModel;
 use App\Models\TataIbadahModel;
+use Illuminate\Support\Facades\DB;
 
 class LandingController extends Controller
 {
@@ -20,9 +21,16 @@ class LandingController extends Controller
             session()->put('selected_tipe_kegiatan', "All");
         }
 
-        $pengurus = PengurusModel::select('nama','jabatan','img_url')
-            ->orderBy('nama', 'DESC')
-            ->get();
+
+        $pengurus = PengurusModel::selectRaw("
+            *,
+            CASE 
+                WHEN jabatan = 'Pendeta Resort / Pimpinan Jemaat' THEN 1 
+                WHEN jabatan = 'Sekretaris Jemaat' THEN 2
+                WHEN jabatan = 'Bendahara Jemaat' THEN 3
+            ELSE 4
+            END AS ord_jabatan 
+        ")->orderByRaw('ord_jabatan ASC')->get();
 
         $tataibadah = TataIbadahModel::select('id','nama','tanggal','file_url','created_at', 'created_by', 'updated_at', 'updated_by')
             ->orderBy('tanggal', 'DESC')

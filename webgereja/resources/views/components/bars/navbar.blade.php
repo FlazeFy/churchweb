@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" href="#"><img src="logo-GKPI.png" alt="" style="height: 50px"></a>
         <label class="navbar-brand" href="#" style="font-weight: bold"> <h3>GKPI Kota Tebing Tinggi</h3></label>
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
