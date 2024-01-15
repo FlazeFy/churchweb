@@ -15,4 +15,4 @@
 <div class="section_title_main">{{$title}}</div>
 @if(isset($subtitle))
     <div class="section_subtitle_main">{{$subtitle}}</div>
-@endif
+@endifcd
