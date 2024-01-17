@@ -32,6 +32,10 @@ class StrukturOrganisasiController extends Controller
             ->orWhere('kamus_type', 'jabatan')
             ->get();
 
+        //Set active nav
+        session()->put('active_nav', 'tentang_gereja');
+        session()->put('active_subnav', 'struktur');
+
         return view('struktur.index')
             ->with('struktur_organisasi', $pengurus)
             ->with('bph', $bph)

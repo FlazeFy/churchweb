@@ -7,7 +7,7 @@
         @endforeach
     </div>
     <div class="col-lg-9 col-md-8 col-sm-12">
-        <embed class="w-100 mb-2 rounded" style="height:95vh;" alt="https://firebasestorage.googleapis.com/v0/b/mifik-83723.appspot.com/o/attachment_doc%2F045953ae-99fe-4583-aec4-dc6c9fbf6de7?alt=media&token=f0f3c8a5-f47e-4d40-8532-700f6a576eb7" style="height: 250px;" src="https://firebasestorage.googleapis.com/v0/b/mifik-83723.appspot.com/o/attachment_doc%2F045953ae-99fe-4583-aec4-dc6c9fbf6de7?alt=media&token=f0f3c8a5-f47e-4d40-8532-700f6a576eb7"/>
+        <embed class="w-100 mb-2 rounded" style="height:95vh;" alt="https://drive.google.com/file/d/1XzKcbaCZYgMM7D71sNcoSSXdbCk7KRcV/preview" style="height: 250px;" src="https://drive.google.com/file/d/1XzKcbaCZYgMM7D71sNcoSSXdbCk7KRcV/preview"/>
 
     </div>
 </div>

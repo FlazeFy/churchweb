@@ -1,6 +1,8 @@
 @include('components.typographies.section_title', ['title'=>'Tata Ibadah'])
 <br>
-@include('landing.tambahtataibadah')
+@if(session()->get("token_key") != null)
+    @include('landing.tambahtataibadah')
+@endif
 <table class="table table-paginate" id="tataIbadahTable" cellspacing="0">
     <thead>
         <tr>

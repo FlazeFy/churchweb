@@ -21,6 +21,10 @@ class StatistikController extends Controller
             ->groupBy('sektor')
             ->get();
 
+        //Set active nav
+        session()->put('active_nav', 'data_gereja');
+        session()->put('active_subnav', 'statistik');
+
         return view('statistik.index')
             ->with('statsStatus', $statsStatus)
             ->with('statsSektor', $statsSektor);

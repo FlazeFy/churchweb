@@ -23,3 +23,16 @@ footer {
     color: var(--darkColor);
     font-size: var(--textXLG);
 }
+
+/* Mobile style */
+@media (max-width: 767px) {
+    .navbar-holder {
+        margin-top: 0 !important;
+        border-radius: 0;
+    }
+}
+
+/* Tablet style */
+@media (min-width: 768px) and (max-width: 1023px) {
+  
+}

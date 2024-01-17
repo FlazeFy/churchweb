@@ -11,6 +11,10 @@ class RancanganProgramController extends Controller
      */
     public function index()
     {
+        //Set active nav
+        session()->put('active_nav', 'kategori');
+        session()->put('active_subnav', 'rancangan_program');
+
         return view('rancangan.index');
     }
 

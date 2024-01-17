@@ -35,6 +35,10 @@ class RenunganController extends Controller
                 ->get();
         }
 
+        //Set active nav
+        session()->put('active_nav', 'kategori');
+        session()->put('active_subnav', 'renungan');
+
         return view('renungan.index')
             ->with('renungan', $renungan)
             ->with('kitab', $kitab);

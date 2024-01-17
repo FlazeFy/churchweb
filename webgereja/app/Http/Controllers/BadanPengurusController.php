@@ -26,6 +26,10 @@ class BadanPengurusController extends Controller
             ->orWhere('kamus_type', 'jabatan')
             ->get();
 
+        //Set active nav
+        session()->put('active_nav', 'tentang_gereja');
+        session()->put('active_subnav', 'badan_pengurus');
+
         return view('badanpengurus.index')
             ->with('bph', $bph)
             ->with('kamus', $kamus);
