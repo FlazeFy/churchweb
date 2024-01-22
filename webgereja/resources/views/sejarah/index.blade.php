@@ -58,7 +58,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 px-4" style="text-align: justify">
             <p>Dengan demikian Pokok Pokok Pemahaman Iman GKPI ini berfungsi sebagai: </p>
             <ol>
-                <li>Pedoman dan tuntunan bagi seluruh jajaran GKPI dalam hal ajaran, supaya tidak ?diombang ambingkan oleh rupa rupa angin pengajaran? (ef 4:14) dan supaya dapat menjawab perkara-perkara mendasar yang berkaitan dengan imannya, sebagaimana terlihat dari susunan isi dokumen ini;</li>
+                <li>Pedoman dan tuntunan bagi seluruh jajaran GKPI dalam hal ajaran, supaya tidak diombang ambingkan oleh rupa rupa angin pengajaran? (ef 4:14) dan supaya dapat menjawab perkara-perkara mendasar yang berkaitan dengan imannya, sebagaimana terlihat dari susunan isi dokumen ini;</li>
                 <li>Pedoman  dan acuan bagi warga dan pelayan GKPI dalam merumuskan bentuk, isi, dan tujuan kesaksian dan pelayanan, demikian juga dalam menyusun peraturan dan program GKPI disemua aras</li>
                 <li> Pedoman dan acuan untuk memberi jawab dan pertanggungjawaban tentang imannya terhadap berbagai pengajaran dan nilai yang terus menerus bermunculan dan berubah, sekaligus menolaknya kalau ternyata bertentangan dengan iman kristiani. Pokok pokok Pemahaman Iman GKPI ini bersumber dan berdasar pada Alkitab. Karena itu tidak dimaksudkan sebagai pengganti ataupun tandingan Alkitab. Namun di lain pihak dokumen ini hendak juga mencerminkan pemahaman dan penafsiran atas amanat Alkitab secara aktual, sehingga Alkitab sungguh-sungguh bersuara secara relevan pada masa kini, dan pesannya menjadi jelas bagi para warga dan pelayan GKPI.</li>
             </ol>
